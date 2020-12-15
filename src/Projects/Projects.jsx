@@ -85,22 +85,22 @@ const Projects = ({passRef}) => {
     // useEffect(()=>{console.log('Changing Page Index to: ',pageIndex)}, [pageIndex]);
 
     //Hide description on scroll for tall images
-    const [showDescription, setShowDescription] = useState(true);
-        useEffect(() => {
-            //Listener to start animation, first time in view
-                window.addEventListener('scroll',onView);
-                console.log('Starting scroll listener');
-        }, []);
+    // const [showDescription, setShowDescription] = useState(true);
+    //     useEffect(() => {
+    //         //Listener to start animation, first time in view
+    //             window.addEventListener('scroll',onView);
+    //             console.log('Starting scroll listener');
+    //     }, []);
 
-        //Start typing on scroll, only first occurrence
-        const onView = useCallback((event) => {
-            if(projectIndex != null && projectIndex != undefined && pageIndex != null){
-                setShowDescription(projects[projectIndex].pages[pageIndex].type != 'vertical-scroll');
-                console.log('Hiding Description', showDescription);
-                forceUpdate();
-            }
-                // window.removeEventListener('scroll', onView);
-        }, []);
+    //     //Start typing on scroll, only first occurrence
+    //     const onView = useCallback((event) => {
+    //         if(projectIndex != null && projectIndex != undefined && pageIndex != null){
+    //             setShowDescription(projects[projectIndex].pages[pageIndex].type != 'vertical-scroll');
+    //             console.log('Hiding Description', showDescription);
+    //             forceUpdate();
+    //         }
+    //             // window.removeEventListener('scroll', onView);
+    //     }, []);
 
     return (<div id='projects-section' ref={passRef}  class='container-fluid row no-padding no-margin w-100 h-100' style={{display: 'flex', flexDirection: 'column', backgroundColor: 'black', margin: '1.0rem 0', paddingTop: '0.5rem'}}>
         <h1 id='project-title' >Projects</h1>        
@@ -108,7 +108,7 @@ const Projects = ({passRef}) => {
             <Carousel key= {'preview'}  activeIndex={pageIndex} onSelect={(i,e)=>{ setPageIndex(i); console.log('select-called');}} className='col-lg-8 col-md-10' style={{margin: '0.25rem auto', padding: '0',}}>
                 {projects.map((project,i) => 
                     <Carousel.Item key={project.target+i}   interval={2500} onClick={()=>{ setProjectIndex(i); setPageIndex(0); forceUpdate();}} style={{maxHeight: '75vh', }}>
-                        <img  className="d-block w-100" src={project.pages[0].image} alt={project.target} />
+                        <img  className="d-block w-100 project-image" src={project.pages[0].image} alt={project.target} />
                         <h3 className='carousel-title'>{project.title}</h3>
                         <div className='carousel-description-box' >
                             <p className='carousel-description' >{project.pages[0].description}</p>
@@ -124,7 +124,7 @@ const Projects = ({passRef}) => {
                     : <img  className="d-block w-100 project-image" src={projects[projectIndex].pages[i].image} alt={projects[projectIndex].pages[i].target} />}
                         <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
                         {page.type == 'vertical-scroll' ? <div></div>
-                        : <div id='describe-box' className='carousel-description-box' style={{visibility: showDescription ? 'visible' : 'hidden'}}>
+                        : <div id='describe-box' className='carousel-description-box' style={{}}>
                             <p className='carousel-description' >{projects[projectIndex].pages[i].description}</p>
                         </div>}
                     </Carousel.Item>)}
