@@ -1,5 +1,5 @@
 // import 'bootstrap/dist/css/bootstrap.css';
-import React, {useState, useEffect, useRef, useCallback} from 'react';
+import React, {useState} from 'react';
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Contact.css';
@@ -53,7 +53,7 @@ const Contact = ({passRef}) => {
     return (<div id='contact-section' ref={passRef}  class='container-fluid row' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2.0rem auto'}} >
         <form id='formBox' onSubmit={sendMessage} className='container col-lg-6 w-100' >
             <section style={{display: 'inline-block', width: '100%', alignItems: 'center', margin: 'auto', }}>
-                <img src={head} style={{position: 'absolute', left: '19%', top: '2%', height: '4rem', width: 'auto', borderRadius: '50%', border: '2px solid var(--orange)'}}></img>
+                <img src={head} alt='portrait' style={{position: 'absolute', left: '19%', top: '2%', height: '4rem', width: 'auto', borderRadius: '50%', border: '2px solid var(--orange)'}}></img>
                 <h1 style={{margin: '0 auto', textAlign: 'center', padding: '0.5rem', fontSize: '2.0rem'}}>Let's Talk</h1>
             </section>
             <input name="name" type="text" class="form-control" id="nameBox" placeholder="Name..." {...bindName}/>

@@ -31,7 +31,7 @@ const Experience = ({passRef}) => {
             <div key={experience.company} style={{display:'grid'}}>
                 <span>
                     <a style={{gridColumn: '1'}} data-tip data-for={experience.company + 'logo-tip'} href={experience.link} target='_blank' rel="noopener noreferrer">
-                        <img className='experience-logo' src={experience.icon} style={{}} href={experience.link} target='_blank' rel="noopener noreferrer"></img>
+                        <img className='experience-logo' src={experience.icon} alt={experience.company} style={{}} href={experience.link} target='_blank' rel="noopener noreferrer"></img>
                     </a>
                     <Tip id={experience.company + 'logo-tip'}><span>{experience.link}</span></Tip>
                 </span>

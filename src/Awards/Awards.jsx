@@ -54,7 +54,7 @@ const Awards = ({passRef}) => {
             <span>
                 <a key={award.title}  data-tip data-for={award.title + '-tip'} className='award' href={award.source} target='_blank' rel="noopener noreferrer"  style={{textDecoration: 'none'}}>
                     <h3 className='award-title'>{award.title}</h3>
-                    <img src={award.cover} className='award-image' ></img>
+                    <img src={award.cover} alt={award.title} className='award-image' ></img>
                     <p className='award-text'>{award.description}</p>
                 </a>
                 <Tip id={award.title + '-tip'}><span>{award.prompt}</span></Tip>

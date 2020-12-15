@@ -145,7 +145,7 @@ const Projects = ({passRef}) => {
             {projects[projectIndex].tech.map((t,i)=>
             <span>
                 <a key={technologies.get(t).title}  data-tip data-for={technologies.get(t).title + '-tip'} href={technologies.get(t).link} target='_blank' rel="noopener noreferrer" className='project-tech' >
-                        <img src={technologies.get(t).icon} className='' style={{margin: '0.0rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: technologies.get(t).background}}></img>
+                        <img src={technologies.get(t).icon} alt={technologies.get(t).target} className='' style={{margin: '0.0rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: technologies.get(t).background}}></img>
                         {/* <h3 className='link' style={{fontSize: '1rem', marginTop: '0.5rem', color: 'var(--green)'}}>{technologies.get(t).title}</h3> */}
                     </a>
                     <Tip id={technologies.get(t).title + '-tip'}><span>View: {technologies.get(t).link}</span></Tip>
@@ -156,7 +156,7 @@ const Projects = ({passRef}) => {
                 <span>
                     <div key={project.target} data-tip data-for={project.target + i + '-tip'} className='project-list' onClick={()=>{ setProjectIndex(i); setPageIndex(0); forceUpdate();}}>
                         <h3 className='project-list-title'>{project.title}</h3>
-                        <img src={project.pages[0].image} className='project-list-image' ></img>
+                        <img src={project.pages[0].image} alt={project.target} className='project-list-image' ></img>
                         <p className='project-list-text'>{project.pages[0].description.split('.',1)[0]+'.'}</p>
                     </div>
                     <Tip id={project.target + i + '-tip'}><span>View {project.title}</span></Tip>

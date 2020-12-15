@@ -46,7 +46,7 @@ const Technologies = ({passRef}) => {
             {technologies.map((tech)=> 
             <span>
                     <a key={tech.title} data-tip data-for={tech.title + '-tip'} href={tech.link} target='_blank' rel="noopener noreferrer" className='tech-icon' >
-                        <img src={tech.icon} className='' style={{margin: '0.5rem', padding: '0', height: '3.5rem'}}></img>
+                        <img src={tech.icon} alt={tech.title} className='' style={{margin: '0.5rem', padding: '0', height: '3.5rem'}}></img>
                         {/* <h3 className='link' className=''  style={{fontSize: '1rem', marginTop: '0.5rem', color: 'var(--green)'}}>{tech.title}</h3> */}
                     </a>
                     <Tip id={tech.title + '-tip'}><span>View: {tech.link}</span></Tip>
