@@ -1,0 +1,69 @@
+.line {
+    position: static;
+    right: 0;
+    border-top: 0.25rem solid var(--green);
+    width: 100%;
+  }
+  
+ .title {
+    position: static;
+    right: 0;
+    background-color: black;
+    /* border-top: 0.25rem solid var(--green); */
+    /* border-bottom: 0.25rem solid var(--green); */
+    color: var(--orange);
+    /* color: white; */
+    text-align: center;
+    padding: 0.5rem;
+    margin: 1.0rem 0;
+  }
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 1.0rem; */
+    width: 100%;
+  }
+  .tech:hover {
+      z-index: 2;
+      /* zoom: 2; */
+      /* transform: scale(2); */
+  }
+  .technologies-box {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    /* height: 100%; */
+    /* width: 100%; */
+    margin: 0 10% 0 10%;
+  }
+  .tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.25rem 1.5rem;
+  }
+  .tech-icon:hover {
+    z-index: 2;
+    /* zoom: 1.7; */
+    transform: scale(2);
+  }
+  @media screen and (max-width: 992px){
+    .technologies-box {
+      justify-content: start;
+      flex-wrap: unset;
+      white-space:nowrap;
+      overflow: auto;           
+      overflow-x: scroll;
+      text-align: center;
+      width: 100%;
+      margin: 0;
+    }
+    .tech-icon {
+      /* width: 100%; */
+      margin: 0 0.75rem;
+    }
+  }

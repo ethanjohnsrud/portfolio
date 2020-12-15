@@ -1,0 +1,132 @@
+
+:root {
+  --orange: #C46210;
+  --grey: #707070;
+  --green: #21421e;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  /* change font size also change reverence in Education */
+  font-size: 20px;
+  color: var(--orange);
+}
+/* phone  */
+@media screen and (max-width: 600px){
+  :root {
+    /* change font size also change reverence in Education */
+    font-size: 10px;
+  }
+}
+body {
+  background-color: whitesmoke !important;
+}
+body .bg-dark {
+  background-color: black !important;
+}
+#basic-nav-dropdown {
+  overflow-y: auto;
+}
+#nav-center {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.navbar-dark .navbar-nav .nav-link {
+  display:inline-block;
+  padding: 0.25rem;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  font-family: 'Piazzolla', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  background-color: black;
+  color: whitesmoke;
+  text-decoration: none;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+  background-color: var(--orange);
+  color: black;
+}
+.navbar-dark .navbar-nav .nav-link.active {
+  font-style: normal;
+  font-weight: 400;
+  color: whitesmoke;
+  /* background-color: var(--orange);
+  color: var(--orange); */
+}
+
+.navbar-expand-md .navbar-nav {
+  width: 100%;
+  height: 100%;
+  margin:0;
+  align-items: center;
+  justify-content: flex-end;
+  
+}
+
+.activeNav {
+  color: var(--orange) !important;
+}
+.activeNav:hover {
+  color: black !important;
+}
+
+#contact-label {
+  margin: 0;
+  padding: 0;
+  margin-right: 6.0rem;
+}
+
+@media screen and (max-width: 768px){
+  #contact-label {
+    margin-right: 0;
+  }
+}
+
+.no-padding {
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+  position: relative;
+  margin: 0 auto 1rem 0;
+  right: 30%;
+  border: 0;
+  border-top: 0.25rem solid var(--green);
+  /* width: 70%; */
+}
+
+h1 {
+  font-family: 'Piazzolla', serif;
+  font-size: 2.25rem;
+  color: var(--orange);
+  /* text-align: center; */
+  margin: 1rem 0 0.5rem 10%;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  color: var(--orange);
+  margin: 1rem 0 0.5rem 10%;
+  padding: 1rem;
+}
+
+
+
+p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+}
+
+.line {
+  position: static;
+  right: 0;
+  border-top: 0.25rem solid var(--green);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}

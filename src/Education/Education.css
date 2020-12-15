@@ -1,0 +1,67 @@
+span {
+    margin: 0;
+    padding: 0;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: underline;
+  text-decoration-color: var(--green);
+}
+a:hover {
+    cursor: pointer;
+}
+.console {
+    display: block;
+    /* margin: 1.0rem 0; */
+    background-color: black;
+    border-style: ridge;
+    border-width: 0.5rem;
+    border-color: var(--green);
+    border-top: none;
+    border-radius: 3%;
+    padding: 1.5rem;
+    text-align: left;
+    color: white;
+    width: 100%;
+}
+.console-header {
+    position: relative; 
+    top: 1.5rem;    
+    z-index: 1;
+    border: none;
+    border: 0.15rem solid var(--green);
+    /* border-radius: 15%; */
+    border-top-left-radius: 1.0rem;
+    border-top-right-radius: 1.0rem;
+    padding: 0.5rem;
+    background-color: black;
+    text-align: center;
+   
+}
+.console-header-title {
+    font-family: 'Ubuntu Mono', monospace;
+    color: var(--grey);
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+.text-block { 
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}  
+.text { 
+    display: inline-block;
+    margin-left: 0.8rem;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.8rem;
+}   

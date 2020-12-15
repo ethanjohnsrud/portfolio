@@ -1,0 +1,204 @@
+  #project-scroll-box{
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+      overflow: auto;
+      white-space:nowrap;
+      overflow-x: scroll;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+      margin: 0 0 0 0;
+  }
+  
+ #project-title {
+    position: static;
+    right: 0;
+    /* border-bottom: 0.25rem solid var(--green); */
+    color: var(--orange);
+    /* color: white; */
+    text-align: center;
+    padding: 0;
+    margin: 0 0;
+  }
+  .project-list {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    margin: 0 0.5rem;
+    text-align: center;
+    /* padding: auto; */
+    width: 75vw;
+    height: auto;
+    overflow: hidden;
+    /* min-width: 10.0rem;
+    max-width: 15.0rem; */
+  }
+  @media screen and (max-width: 600px){
+    .project-list {
+      width: 80vw;
+      max-height: 25vh;
+    }
+  }
+  @media screen and (min-width: 600px){
+    .project-list {
+      width: 35vw;
+      max-height: 22vh;
+    }
+  }
+  @media screen and (min-width: 992px){
+    .project-list {
+      width: 15vw;
+      max-height: 18vh;
+    }
+  }
+
+  .project-list:hover {
+    /* position: absolute; */
+    z-index: 2;
+    /* zoom: 1.5; */
+    transform: scale(1.25);
+  }
+  .project-list-image {
+    width: 80%;
+    height: auto;
+    border: 0.15rem ridge var(--green);
+    border-radius: 1.0rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .project-list-title {
+    position: absolute;
+    left: auto;
+    right: auto;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Piazzolla', serif;
+    font-size: 1.3rem;
+    color: var(--orange);
+    background-color: black;
+    border-bottom-right-radius: 1.0rem;
+    border-bottom-left-radius: 1.0rem;
+    padding: 0.5rem;
+  }
+  .project-list-text {
+    position: relative;
+    bottom: 1.0rem;
+    margin-bottom: -1.0rem;
+    width: 100%;
+    white-space: pre-wrap;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.55rem;
+    line-height: 0.8rem;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    color: white;
+    padding: 0.35rem;
+    border-radius: 0.3rem;
+    background-color: black;
+    opacity: 90%;
+  }
+  
+/* Color bottom tabs: page selection  */
+.carousel-indicators li {
+    background-color: var(--green);
+}
+.carousel-indicators .active {
+  background-color: var(--orange);
+}
+ol {
+    padding: 0;
+    margin: 0;
+}
+/* .carousel-caption {
+    position: absolute;
+    z-index: 5;
+    margin:0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+} */
+.carousel-title {
+    z-index: 3;
+    position: absolute;
+    top:0;
+    left: 0;
+    /* bottom: 55vh; */
+    /* width: 100%; */
+    text-align: left;
+    font-family: 'Piazzolla', serif;
+    font-size: 1.3rem;
+    color: var(--orange);
+    background-color: black;
+    border-bottom-right-radius: 1.0rem;
+    /* border-bottom-left-radius: 1.0rem; */
+    padding: 0.5rem;
+}
+.carousel-description-box {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;    
+}
+.carousel-description {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0.40rem;
+    padding-bottom: 1.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: black;
+    opacity: 90%;
+    text-align: center;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    text-align: center;
+    color: var(--orange);
+}
+.project-image {
+  /* max-height: 50vh; */
+  width: 100%;
+  object-fit: contain;
+  margin: auto;
+  text-align: center;
+}
+.project-tech-title {
+  position: static;
+  right: 0;
+  background-color: black;
+  border-top: 0.25rem solid var(--green);
+  border-bottom: 0.25rem solid var(--green);
+  color: var(--orange);
+  /* color: white; */
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1.0rem 0;
+}
+.project-tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.55rem;
+  color: var(--green);
+  background: var(--grey);
+  font-family: 'Piazzolla', serif;
+  font-weight: 700;
+  /* width: 100%; */
+}
+.project-tech:hover {
+  background: black;
+}

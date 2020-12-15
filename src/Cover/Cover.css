@@ -1,0 +1,77 @@
+#cover-image {
+  height: 80vh;
+  min-width: 100%;
+  object-fit: cover;
+  top: 0;
+  margin-bottom: 1.50rem;
+  border-bottom: 0.3rem solid black;
+}
+/* Phone */
+@media screen and (max-width: 600px){
+  #cover-image {
+    height: '40vh';
+  }
+}
+#name {
+    color: var(--orange);
+    font-family: 'Piazzolla', serif;
+    /* font-weight: bold; */
+    font-size: 7vw;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    max-width: 40%;
+    white-space: pre-wrap;
+    text-align: center;
+  }
+  #about-caption {
+    position: absolute;
+    bottom: 13%;
+    left: 7%;
+    width: 50%;
+    padding: 0.6rem;
+    border-radius: 10px;
+    background-color: black;
+    opacity: 85%;
+  }
+  /* Phone */
+  @media screen and (max-width: 768px){
+    #name {
+      width: 100%;
+      white-space: pre-wrap;
+    }
+    #about-caption {
+      position: relative;
+      width: 95%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 10vh;
+      margin-bottom: -10vh;
+      opacity: 90%;
+    }
+  }
+  
+  #about-caption-text {
+    font-size: 1.0rem;
+    color: var(--orange);
+  }
+  #contact-information {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 1% 10%;
+    /* color: whitesmoke; */
+  }
+  /* Phone and tablet */
+  @media screen and (max-width: 600px){
+    #contact-information {
+      text-align: center;
+      margin: auto;
+    }
+  }
+  
+  

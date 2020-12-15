@@ -1,0 +1,56 @@
+#manifesto-section {
+    background-color: black;
+    padding: 1.0rem;
+    margin: 0  0 0 0;
+}
+#text-title {
+    font-family: 'Piazzolla', serif;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.2rem;
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin: 0.8rem auto;
+    padding: 0;
+}
+.text-line {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.35rem;
+    letter-spacing: 0.1rem;
+    text-align: center !important;
+    color: whitesmoke;
+    /* width: 100%; */
+    margin: 0 0;
+    padding: 0;
+}
+.text-left {
+    width: 100%;
+    text-align: right !important;
+    font-size: 1.0rem;
+    letter-spacing: 0.20rem;
+    margin: 0 0.35rem 0 auto;
+    padding: 0;
+    color: var(--orange);
+}
+.text-right {
+    width: 100%;
+    text-align: left !important;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    margin: 0 auto 0 0.25rem;
+    padding: 0;
+    color: var(--green);
+}
+#text-sub {
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.35rem;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin: 0.5rem auto;
+    padding: 0;
+}
