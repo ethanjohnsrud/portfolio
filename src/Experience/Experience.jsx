@@ -69,7 +69,7 @@ const Experience = ({passRef}) => {
                                     {pro.link == '' ?
                                         <h3 className='experience-project-title' style={{}}>{pro.title}</h3>
                                         : <span>
-                                            <a data-tip data-for={pro.title + '-tip'} href={pro.link} target='_blank' rel="noopener noreferrer" >
+                                            <a data-tip data-for={pro.title + '-tip'} href={pro.link} >
                                                 <h3 className='link experience-project-title' style={{}}>{pro.title}</h3>
                                             </a>
                                             <Tip id={pro.title + '-tip'}><span>{pro.prompt}</span></Tip>

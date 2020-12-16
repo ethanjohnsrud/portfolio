@@ -84,34 +84,40 @@ const Projects = ({passRef}) => {
     // useEffect(()=>{console.log('Changing Carousel to: ',projectIndex)}, [projectIndex]);
     // useEffect(()=>{console.log('Changing Page Index to: ',pageIndex)}, [pageIndex]);
 
-    return (<div id='projects-section' ref={passRef}  class='container-fluid row no-padding no-margin w-100 h-100' style={{display: 'flex', flexDirection: 'column', backgroundColor: 'black', margin: '1.0rem 0', paddingTop: '0.5rem'}}>
+    return (<div id='projects-section' ref={passRef}  class='container-fluid no-padding no-margin w-100 h-100' style={{display: 'flex', flexDirection: 'column', backgroundColor: 'black', margin: '1.0rem 0', paddingTop: '0.5rem'}}>
         <h1 id='project-title' >Projects</h1>        
         {projectIndex == null ?
-            <Carousel key= {'preview'}  activeIndex={pageIndex} onSelect={(i,e)=>{ setPageIndex(i); console.log('select-called');}} className='col-lg-8 col-md-10' style={{margin: '0.25rem auto', padding: '0',}}>
-                {projects.map((project,i) => 
-                    <Carousel.Item key={project.target+i}   interval={2500} onClick={()=>{ setProjectIndex(i); setPageIndex(0); forceUpdate();}} style={{maxHeight: '75vh', }}>
-                        <img  className="d-block w-100 project-image" src={project.pages[0].image} alt={project.target} />
-                        <h3 className='carousel-title'>{project.title}</h3>
-                        <div className='carousel-description-box' >
-                            <p className='carousel-description' style={{opacity: '90%'}} >{project.pages[0].description}</p>
-                        </div>
-                    </Carousel.Item>)}
-            </Carousel>
+            <span className='carousel-box' >
+                <Carousel key= {'preview'}  data-tip data-for={'preview'} activeIndex={pageIndex} onSelect={(i,e)=>{ setPageIndex(i); console.log('select-called');}} style={{margin: '0.25rem auto', padding: '0',}}>
+                    {projects.map((project,i) => 
+                        <Carousel.Item key={project.target+i}   interval={3000} onClick={()=>{ setProjectIndex(i); setPageIndex(0); forceUpdate();}} style={{maxHeight: '75vh'}}>
+                            <img  className="d-block project-image" src={project.pages[0].image} alt={project.target} style={{width: '100%', maxHeight: '75vh'}}/>
+                            <h3 className='carousel-title'>{project.title}</h3>
+                            <div className='carousel-description-box' >
+                                <p className='carousel-description' style={{opacity: '90%'}} >{project.pages[0].description}</p>
+                            </div>
+                        </Carousel.Item>)}
+                </Carousel>
+                <Tip id={'preview'}><span>Click to View : Hover to Pause</span></Tip>
+            </span>
             : 
-            <Carousel key= {'in-depth'+projectIndex}  activeIndex={pageIndex} onSelect={(i,e)=>{setPageIndex(i); console.log('select-called'); forceUpdate();}} className='col-lg-8 col-md-10' style={{margin: '1.0rem auto',}}>
-                {projects[projectIndex].pages.map((page,i) => 
-                    <Carousel.Item key={projects[projectIndex].pages[i].target+i+projects[projectIndex].title} interval={5000} style={{maxHeight: '75vh', overflowY: page.type == 'vertical-scroll' ? 'scroll' : 'hidden'}} class={i==0 ? 'active' : ''}>
-                    {page.type == 'video' ?
-                    <Player playing src={conceptVersion}  height='420' width='720' controls={true} style={{margin: '0 auto', textAlign: 'center'}} className='project-image'/>
-                    : <img  className="d-block w-100 project-image" src={projects[projectIndex].pages[i].image} alt={projects[projectIndex].pages[i].target} />}
-                        <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
-                        {page.type == 'vertical-scroll' ? <div></div>
-                        : <div id='describe-box' className='carousel-description-box' >
-                            <p className='carousel-description' style={{opacity: '90%'}} >{projects[projectIndex].pages[i].description}</p>
-                        </div>}
-                    </Carousel.Item>)}
-            </Carousel>
-            }
+            <span className='carousel-box' >
+                <Carousel key= {'in-depth'+projectIndex}  data-tip data-for={'slideshow'} activeIndex={pageIndex} onSelect={(i,e)=>{setPageIndex(i); console.log('select-called'); forceUpdate();}} style={{ margin: '1.0rem auto',}}>
+                    {projects[projectIndex].pages.map((page,i) => 
+                        <Carousel.Item key={projects[projectIndex].pages[i].target+i+projects[projectIndex].title} interval={5000} style={{height: page.type == 'vertical-scroll' ? '100%' : '', width: page.type == 'vertical-scroll' ? '100%' : '', maxHeight: '75vh', overflowY: page.type == 'vertical-scroll' ? 'scroll' : 'hidden', margin: '0.25rem auto',}} class={i==0 ? 'active' : ''}>
+                        {page.type == 'video' ?
+                        <Player playing src={conceptVersion}  height='420' width='720' controls={true} style={{height: '100%', width: '100%', margin: '0 auto', textAlign: 'center'}} className='project-image'/>
+                        : <img  className="d-block project-image" src={projects[projectIndex].pages[i].image} alt={projects[projectIndex].pages[i].target}  style={{width: page.type == 'vertical-scroll' ? '100%' : '100%', maxHeight: page.type == 'vertical-scroll' ? '' : '75vh'}}/>}
+                            <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
+                            {page.type == 'vertical-scroll' ? <div></div>
+                            : <div id='describe-box' className='carousel-description-box' >
+                                <p className='carousel-description' style={{opacity: '90%'}} >{projects[projectIndex].pages[i].description}</p>
+                            </div>}
+                        </Carousel.Item>)}
+                </Carousel>
+                <Tip id={'slideshow'}><span>Hover to Pause</span></Tip>
+            </span>
+            }            
         {projectIndex != null ?
         <div id='project-scroll-box'  >
             <div key={'hours'} data-tip data-for={'hours-tip'} className='project-tech' style={{margin: '0', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', color: 'var(--green)', background: 'var(--grey)'}}>{projects[projectIndex].hours} Hours</div>

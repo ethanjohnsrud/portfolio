@@ -12,7 +12,7 @@ import resumeDocument from '../Assets/Ethan_Johnsrud_Software_Developer.pdf';
 const Cover = ({passRef}) => {
 
     const information=[
-        {text: 'linkedin.com/in/ethanjohnsrud', link: 'http://www.linkedIn.com', icon: linkedIn, prompt: 'View LinkedIn Profile'},
+        {text: 'linkedin.com/in/ethanjohnsrud', link: 'https://www.linkedin.com/in/ethanjohnsrud/', icon: linkedIn, prompt: 'View LinkedIn Profile'},
         {text: 'github.com/ethanjohnsrud', link: 'https://github.com/ethanjohnsrud', icon: github, prompt: 'View GitHub'},
         {text: 'ethanjohnsrud@gmail.com', link: 'http://ethanjohnsrud@gmail.com', icon: email, prompt: 'Send Email'},
         {text: 'RESUME', link: resumeDocument, icon: resume, prompt: 'View Resume'}
