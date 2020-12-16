@@ -73,5 +73,16 @@
       margin: auto;
     }
   }
-  
+.contact-text {
+  font-size: 0.8rem;
+  margin: auto;
+  font-weight: 600;
+  color: var(--green);
+  overflow: hidden;
+}  
+@media screen and (max-width: 600px){
+  .contact-text {
+    font-size: 0.6rem;
+  }  
+}
   

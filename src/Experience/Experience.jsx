@@ -9,19 +9,19 @@ const Experience = ({passRef}) => {
 
     const EXPERIENCES=[
         {position: 'Software Developer', company: 'Fasetto', time: 'Oct. 2019 - May. 2020', link: 'https://www.fasetto.com/', icon: fasetto,
-            summary: 'Through this internship experience, I gained valuable insight into the inter-workings of a tech company and the daily duties of software engineers.  I had the opportunity to work side by side the development team on a daily basis, receiving career guidance and jump starting my skills with full stack development.',
+            summary: 'Through this internship experience, I gained valuable insight into the inter-workings of a tech company and the daily duties of software engineers.  I became familiar with the development lifecycle, with frequent Q&A testing, software demos, and product sales process.  I had the opportunity to work side by side the development team on a daily basis, receiving career guidance and jump starting my skills with full stack development.',
             notes: [
                 {title: 'Mentor: Matthew Kleven', description: 'Guided in introduction with React and Front End Technology Stack', link: 'https://www.linkedin.com/in/matthew-kleven-b4a48b179/', prompt: 'Matthew LinkedIn'},
                 {title: 'Supervisor: Parnell Lutz', description: 'Guided in User Design, Functionality, and Project Management', link: 'https://www.linkedin.com/in/parnell-lutz-6bb13224/', prompt: 'Parnell LinkedIn'},
                 {title: 'Recommendation Letter', description: '', link: fasettoLetter, prompt: 'Recommendation Letter by Parnell Lutz'},
             ],
             projects: [
-                {title: 'Concept Environment', link: '#projects-section', description: 'Worked on Gravity using Socket.IO and React, great learning Experience!', prompt: 'Concept Environment Project'},
-                {title: 'Gravity Text Editor', link: '#projects-section', description: 'Worked on Gravity using Socket.IO and React, great learning Experience!', prompt: 'Gravity Editor Project'}
+                {title: 'Concept Environment', link: '#projects-section', description: 'Introduction to React, web technologies, and user interfaces.  Also full scope product development with server backend, client tracking, and database online and offline version control.', prompt: 'Concept Environment Project'},
+                {title: 'Gravity Text Editor', link: '#projects-section', description: 'Unique experience working within slatejs in identifying and rendering leaves and blocks of document objects', prompt: 'Gravity Editor Project'}
             ],},
     ];
 
-    return (<div id='experience-section' ref={passRef}  class='container-fluid no-padding no-margin w-100' style={{position: 'relative',  left: 0, right: 0, }}>
+    return (<div id='experience-section' ref={passRef}  class='container-fluid no-padding no-margin w-100' style={{position: 'relative',  left: 0, right: 0, paddingTop: '3.0rem'}}>
         <h1>Internship</h1>
         <hr/>
         <div className='container-fluid no-margin no-padding w-100' style={{}}>

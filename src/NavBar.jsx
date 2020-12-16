@@ -72,7 +72,7 @@ useEffect(() => { //https://stackoverflow.com/questions/63544289/how-to-highligh
             <Nav.Link className= {experienceActive ? 'activeNav' : ''} href="#experience-section" >Internship</Nav.Link>
             <Nav.Link className= {technologiesActive ? 'activeNav' : ''} href="#technologies-section" >Technologies</Nav.Link>
             <Nav.Link className= {educationActive ? 'activeNav' : ''} href="#education-section" >Education</Nav.Link>
-            <Nav.Link className= {awardActive ? 'activeNav' : ''} href="#award-section" >Involvement</Nav.Link>
+            <Nav.Link className= {awardActive ? 'activeNav' : ''} href="#award-section" >Recognition</Nav.Link>
             <Nav.Link className= {contactActive ? 'activeNav' : ''} href="#contact-section" ><section style={{display: 'grid', width: '100%',  height: '100%', margin: '0', padding: '0', }}>
               <label id='contact-label' style={{gridColumn: '1'}}>Contact</label>
             <img src={head} alt='Floating Head' style={{gridColumn: '2', position: 'absolute', right: '1.0rem', bottom: '-2.0rem', height: '4.0rem', width: 'auto', backgroundColor: contactActive ? 'var(--orange)' : 'black', borderRadius: '50%', border: contactActive ? '2px solid black' : '2px solid var(--orange)', }}></img>

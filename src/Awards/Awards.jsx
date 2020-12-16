@@ -19,8 +19,8 @@ import scholarshipDocument from '../Assets/Scholarship-Application.pdf';
 import scholarshipImage from '../Assets/scholarship.png';
 import automationImage from '../Assets/garden.png';
 import automation from '../Assets/Faribault-Automation.pdf';
-// import greenhouseImage from '../Assets/greenhouse.png';
-import greenhouseImage from '../Assets/greenhouse2.png';
+import greenhouseImage from '../Assets/greenhouse.png';
+// import greenhouseImage from '../Assets/greenhouse2.png';
 import greenhouse from '../Assets/Plants-Display.pdf';
 import github from '../Assets/github.png';
 
@@ -40,15 +40,15 @@ const Awards = ({passRef}) => {
         {title: 'Greenhouse Business',  description: 'Operated a plant growing business in high school.  Performed analysis on growth records, business expenses, and marketing publications.', source: greenhouse, cover: greenhouseImage, prompt: 'See Publications'},
     ];
 
-    return (<div id='award-section' ref={passRef} class='no-padding no-margin w-100'>
-        <h1 id='title' >Involvement</h1>
+    return (<div id='award-section' ref={passRef} class='no-padding no-margin w-100' style={{paddingTop: '3.0rem'}}>
+        <h1 id='title' >Recognition</h1>
         <div id='scroll-box'  >
             {accomplishments.map((award)=> 
             <span>
                 <a key={award.title}  data-tip data-for={award.title + '-tip'} className='award' href={award.source} target='_blank' rel="noopener noreferrer"  style={{textDecoration: 'none'}}>
                     <h3 className='award-title'>{award.title}</h3>
                     <img src={award.cover} alt={award.title} className='award-image' ></img>
-                    <p className='award-text'>{award.description}</p>
+                    <p className='award-text' style={{opacity: '90%'}}>{award.description}</p>
                 </a>
                 <Tip id={award.title + '-tip'}><span>{award.prompt}</span></Tip>
             </span>)}

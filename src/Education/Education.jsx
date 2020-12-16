@@ -25,6 +25,7 @@ const origional=[ //new line is new command
 {text: `> University of Minnesota`, command: false, link: 'https://www.d.umn.edu/', prompt: 'View University'},
 {text: `> Major: B.S. Computer Science`, command: false, link: 'https://onestop2.umn.edu/pcas/viewCatalogProgram.do?programID=439&strm=1179&campus=UMNDL', prompt: 'View Requirements'},
 {text: `> Minor: Business Finance`, command: false, link: 'https://onestop2.umn.edu/pcas/viewCatalogProgram.do?programID=2296&strm=1209&campus=UMNDL', prompt: 'View Requirements'},
+{text: `>ABET Accredited: CAC`, command: false, link: 'https://www.abet.org/', prompt: 'View ABET'},
 {text: `>\t GPA: 3.35`, command: false, link: '', prompt: ''},
 {text: `>\t Diploma`, command: false, link: umdDiploma, prompt: 'View Document'},
 {text: `education.university.relevantCourses`, command: true, link: '', prompt: ''},
@@ -68,6 +69,8 @@ const Education = ({passRef}) => {
                 setRenderAnimation(true);
                 console.log('Starting Terminal Animation');
                 window.removeEventListener('scroll', onView);
+            //Timer to reset State
+                setTimeout(()=>setRenderAnimation(false), 90000);
             }
         }, []);
  
@@ -102,12 +105,12 @@ const Education = ({passRef}) => {
     
     console.log('final', lines);
     
-    return (<div id='education-section' ref={passRef}  class='container-fluid row no-padding no-margin w-100' style={{position: 'relative',  left: 0, right: 0, }}>
+    return (<div id='education-section' ref={passRef}  class='container-fluid row no-padding no-margin w-100' style={{position: 'relative',  left: 0, right: 0, paddingTop: '3.0rem'}}>
             <div className='col-xl-6 col-lg-8 col-md-12 w-100' style={{margin: '0 auto' }}>
                 <div style={{textAlign: 'center'}}>
                 <section class='console console-header' >
                     <label className='console-header-title'>Education</label>
-                    <button onClick={()=>setRenderAnimation(!renderAnimation)} data-tip data-for={'skip-tip'} className='btn btn-outline-danger' style={{padding: '0.1rem 0.5rem', position: 'absolute', right: '0.75rem', top: '0.75rem', margin: '0 0 0 auto' }}>{renderAnimation ? 'SKIP' : 'START'}</button>
+                    <button onClick={()=>setRenderAnimation(!renderAnimation)} data-tip data-for={'skip-tip'} className={renderAnimation ? 'btn btn-outline-danger' : 'btn btn-outline-success'} style={{padding: '0.1rem 0.5rem', position: 'absolute', right: '0.75rem', top: '0.75rem', margin: '0 0 0 auto' }}>{renderAnimation ? 'SKIP' : 'START'}</button>
                     <Tip id={'skip-tip'}><span>Animation</span></Tip>
                 </section>
                 <section ref={width} class='console'>

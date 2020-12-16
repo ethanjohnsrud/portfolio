@@ -6,7 +6,6 @@ import Carousel from 'react-bootstrap/Carousel'
 import '../index.css';
 import './Projects.css'
 import github from '../Assets/github-logo.png';
-import deskImage from '../Assets/desk-image.png';
 import scrum from '../Assets/agile-scrum-logo.png';
 import oop from '../Assets/oop-logo.png';
 import unix from '../Assets/terminal-logo.png';
@@ -84,11 +83,12 @@ const Projects = ({passRef}) => {
     // useEffect(()=>{console.log('Changing Carousel to: ',projectIndex)}, [projectIndex]);
     // useEffect(()=>{console.log('Changing Page Index to: ',pageIndex)}, [pageIndex]);
 
-    return (<div id='projects-section' ref={passRef}  class='container-fluid no-padding no-margin w-100 h-100' style={{display: 'flex', flexDirection: 'column', backgroundColor: 'black', margin: '1.0rem 0', paddingTop: '0.5rem'}}>
+    return (<div id='projects-section' ref={passRef}  class='container-fluid no-padding no-margin w-100 h-100'  style={{paddingTop: '3.0rem'}}>
+        <div style={{display: 'flex', flexDirection: 'column', backgroundColor: 'black', margin: '1.0rem 0', paddingTop: '0.5rem'}}>
         <h1 id='project-title' >Projects</h1>        
         {projectIndex == null ?
             <span className='carousel-box' >
-                <Carousel key= {'preview'}  data-tip data-for={'preview'} activeIndex={pageIndex} onSelect={(i,e)=>{ setPageIndex(i); console.log('select-called');}} style={{margin: '0.25rem auto', padding: '0',}}>
+                <Carousel key= {'preview'}  data-tip data-for={'preview-tip'} activeIndex={pageIndex} onSelect={(i,e)=>{ setPageIndex(i); console.log('select-called');}} style={{margin: '0 auto',}}>
                     {projects.map((project,i) => 
                         <Carousel.Item key={project.target+i}   interval={3000} onClick={()=>{ setProjectIndex(i); setPageIndex(0); forceUpdate();}} style={{maxHeight: '75vh'}}>
                             <img  className="d-block project-image" src={project.pages[0].image} alt={project.target} style={{width: '100%', maxHeight: '75vh'}}/>
@@ -98,15 +98,15 @@ const Projects = ({passRef}) => {
                             </div>
                         </Carousel.Item>)}
                 </Carousel>
-                <Tip id={'preview'}><span>Click to View : Hover to Pause</span></Tip>
+                <Tip id={'preview-tip'}><span>Click to View : Hover to Pause</span></Tip>
             </span>
             : 
             <span className='carousel-box' >
-                <Carousel key= {'in-depth'+projectIndex}  data-tip data-for={'slideshow'} activeIndex={pageIndex} onSelect={(i,e)=>{setPageIndex(i); console.log('select-called'); forceUpdate();}} style={{ margin: '1.0rem auto',}}>
+                <Carousel key= {'in-depth'+projectIndex}  data-tip data-for={'slideshow-tip'} activeIndex={pageIndex} onSelect={(i,e)=>{setPageIndex(i); console.log('select-called'); forceUpdate();}} style={{ margin: '0 auto',}}>
                     {projects[projectIndex].pages.map((page,i) => 
                         <Carousel.Item key={projects[projectIndex].pages[i].target+i+projects[projectIndex].title} interval={5000} style={{height: page.type == 'vertical-scroll' ? '100%' : '', width: page.type == 'vertical-scroll' ? '100%' : '', maxHeight: '75vh', overflowY: page.type == 'vertical-scroll' ? 'scroll' : 'hidden', margin: '0.25rem auto',}} class={i==0 ? 'active' : ''}>
                         {page.type == 'video' ?
-                        <Player playing src={conceptVersion}  height='420' width='720' controls={true} style={{height: '100%', width: '100%', margin: '0 auto', textAlign: 'center'}} className='project-image'/>
+                        <Player playing src={conceptVersion}  height='auto' width='720' controls={false} bigPlayButtonCentered={true} autoplay={true} style={{height: '100%', width: '100%', margin: '0 auto', textAlign: 'center'}} className='project-image'/>
                         : <img  className="d-block project-image" src={projects[projectIndex].pages[i].image} alt={projects[projectIndex].pages[i].target}  style={{width: page.type == 'vertical-scroll' ? '100%' : '100%', maxHeight: page.type == 'vertical-scroll' ? '' : '75vh'}}/>}
                             <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
                             {page.type == 'vertical-scroll' ? <div></div>
@@ -115,7 +115,7 @@ const Projects = ({passRef}) => {
                             </div>}
                         </Carousel.Item>)}
                 </Carousel>
-                <Tip id={'slideshow'}><span>Hover to Pause</span></Tip>
+                <Tip id={'slideshow-tip'}><span>Hover to Pause</span></Tip>
             </span>
             }            
         {projectIndex != null ?
@@ -145,12 +145,13 @@ const Projects = ({passRef}) => {
                     <div key={project.target} data-tip data-for={project.target + i + '-tip'} className='project-list' onClick={()=>{ setProjectIndex(i); setPageIndex(0); forceUpdate();}}>
                         <h3 className='project-list-title'>{project.title}</h3>
                         <img src={project.pages[0].image} alt={project.target} className='project-list-image' ></img>
-                        <p className='project-list-text'>{project.pages[0].description.split('.',1)[0]+'.'}</p>
+                        <p className='project-list-text' style={{opacity: '90%'}}>{project.pages[0].description.split('.',1)[0]+'.'}</p>
                     </div>
                     <Tip id={project.target + i + '-tip'}><span>View {project.title}</span></Tip>
                 </span>)}
         </div>
         {/* <hr className='line'/> */}
+        </div>
     </div>);
 }
 

@@ -44,7 +44,7 @@ a:hover {
 .console-header-title {
     font-family: 'Ubuntu Mono', monospace;
     color: var(--grey);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: 0.3rem;
 }
@@ -63,5 +63,5 @@ a:hover {
     margin-left: 0.8rem;
     color: white;
     font-family: 'Ubuntu Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }   
