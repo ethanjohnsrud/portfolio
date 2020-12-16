@@ -5,8 +5,6 @@ import Tip from 'react-tooltip';
 import fasetto from '../Assets/fasetto-logo-black.svg';
 import fasettoLetter from '../Assets/fasettoRecommendation.pdf'
 
-
-
 const Experience = ({passRef}) => {
 
     const EXPERIENCES=[

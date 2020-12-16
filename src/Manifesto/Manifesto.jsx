@@ -1,5 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.css';
-import React, {useState, useEffect, useRef, useCallback} from 'react';
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Manifesto.css';

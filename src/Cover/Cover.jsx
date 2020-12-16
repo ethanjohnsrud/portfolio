@@ -1,4 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.css';
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Cover.css'
@@ -20,7 +19,7 @@ const Cover = ({passRef}) => {
     ];
 
     return (<div id='cover-section' ref={passRef} class='container-fluid no-padding no-margin' style={{position: 'relative',  left: 0, right: 0, }}>
-        <img src={Background} alt='Desk Image' class='img-fluid' id='cover-image'/>
+        <img src={Background} alt='Desk Code Overlay' class='img-fluid' id='cover-image'/>
             <div id='about-caption'>
                 <p id='about-caption-text' >Surprising as it may be, I have always admired the coding process.  I started creating complex conditionals in Excel for my greenhouse businesses in high school, and since writing my first ‘Hello World’ program I knew I would flourish in software development.  
                     I discovered how I enjoy thinking through every step, using logic and problem 

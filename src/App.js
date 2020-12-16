@@ -1,7 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import {Button, Form, FormControl, Navbar, Nav, NavDropdown, NavbarBrand } from 'react-bootstrap';
-import React, {useState, useEffect, useRef, useCallback} from 'react';
-import ReactDOM from 'react-dom';
+import React, {useRef} from 'react';
 import './index.css';
 import NavBar from './NavBar';
 import Cover from './Cover/Cover';
@@ -12,7 +10,6 @@ import Education from './Education/Education';
 import Contact from './Contact/Contact';
 import Awards from './Awards/Awards';
 import Manifesto from './Manifesto/Manifesto';
-import head from './Assets/head.png';
 
 
 

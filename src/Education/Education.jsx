@@ -4,8 +4,7 @@ import Tip from 'react-tooltip';
 import Typing from 'react-typing-animation';
 import '../index.css';
 import './Education.css'
-import github from '../Assets/github.png';
-import fhsDiploma from '../Assets/university-transcript.pdf';
+import fhsDiploma from '../Assets/FHS-Diploma.pdf';
 import umdDiploma from '../Assets/university-transcript.pdf';
 
 const origional=[ //new line is new command

@@ -1,4 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.css';
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Awards.css'
@@ -23,13 +22,7 @@ import automation from '../Assets/Faribault-Automation.pdf';
 // import greenhouseImage from '../Assets/greenhouse.png';
 import greenhouseImage from '../Assets/greenhouse2.png';
 import greenhouse from '../Assets/Plants-Display.pdf';
-
-
-
-
-
 import github from '../Assets/github.png';
-
 
 const Awards = ({passRef}) => {
 

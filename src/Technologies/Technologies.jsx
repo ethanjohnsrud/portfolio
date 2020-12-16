@@ -1,5 +1,4 @@
 // import 'bootstrap/dist/css/bootstrap.css';
-// import Maple from 'reactjs-mappletooltip';
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Technologies.css'

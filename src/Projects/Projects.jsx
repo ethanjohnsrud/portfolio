@@ -1,5 +1,5 @@
 // import 'bootstrap/dist/css/bootstrap.css';
-import React, {useState, useEffect, useRef, useCallback, useReducer} from 'react';
+import React, {useState, useCallback} from 'react';
 import Tip from 'react-tooltip';
 import Player from 'react-video-js-player';
 import Carousel from 'react-bootstrap/Carousel'
@@ -84,24 +84,6 @@ const Projects = ({passRef}) => {
     // useEffect(()=>{console.log('Changing Carousel to: ',projectIndex)}, [projectIndex]);
     // useEffect(()=>{console.log('Changing Page Index to: ',pageIndex)}, [pageIndex]);
 
-    //Hide description on scroll for tall images
-    // const [showDescription, setShowDescription] = useState(true);
-    //     useEffect(() => {
-    //         //Listener to start animation, first time in view
-    //             window.addEventListener('scroll',onView);
-    //             console.log('Starting scroll listener');
-    //     }, []);
-
-    //     //Start typing on scroll, only first occurrence
-    //     const onView = useCallback((event) => {
-    //         if(projectIndex != null && projectIndex != undefined && pageIndex != null){
-    //             setShowDescription(projects[projectIndex].pages[pageIndex].type != 'vertical-scroll');
-    //             console.log('Hiding Description', showDescription);
-    //             forceUpdate();
-    //         }
-    //             // window.removeEventListener('scroll', onView);
-    //     }, []);
-
     return (<div id='projects-section' ref={passRef}  class='container-fluid row no-padding no-margin w-100 h-100' style={{display: 'flex', flexDirection: 'column', backgroundColor: 'black', margin: '1.0rem 0', paddingTop: '0.5rem'}}>
         <h1 id='project-title' >Projects</h1>        
         {projectIndex == null ?
@@ -111,7 +93,7 @@ const Projects = ({passRef}) => {
                         <img  className="d-block w-100 project-image" src={project.pages[0].image} alt={project.target} />
                         <h3 className='carousel-title'>{project.title}</h3>
                         <div className='carousel-description-box' >
-                            <p className='carousel-description' >{project.pages[0].description}</p>
+                            <p className='carousel-description' style={{opacity: '90%'}} >{project.pages[0].description}</p>
                         </div>
                     </Carousel.Item>)}
             </Carousel>
@@ -124,20 +106,20 @@ const Projects = ({passRef}) => {
                     : <img  className="d-block w-100 project-image" src={projects[projectIndex].pages[i].image} alt={projects[projectIndex].pages[i].target} />}
                         <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
                         {page.type == 'vertical-scroll' ? <div></div>
-                        : <div id='describe-box' className='carousel-description-box' style={{}}>
-                            <p className='carousel-description' >{projects[projectIndex].pages[i].description}</p>
+                        : <div id='describe-box' className='carousel-description-box' >
+                            <p className='carousel-description' style={{opacity: '90%'}} >{projects[projectIndex].pages[i].description}</p>
                         </div>}
                     </Carousel.Item>)}
             </Carousel>
             }
         {projectIndex != null ?
         <div id='project-scroll-box'  >
-            <div key={'hours'} data-tip data-for={'hours-tip'} className='project-tech' style={{margin: '0.0rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', color: 'var(--green)', background: 'var(--grey)'}}>{projects[projectIndex].hours} Hours</div>
+            <div key={'hours'} data-tip data-for={'hours-tip'} className='project-tech' style={{margin: '0', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', color: 'var(--green)', background: 'var(--grey)'}}>{projects[projectIndex].hours} Hours</div>
             <Tip id={'hours-tip'}><span>Project Length</span></Tip>
             {projects[projectIndex].github == '' ? <div></div>
             : <span>
                 <a key={'github'} data-tip data-for={'gitHub'} href={projects[projectIndex].github} target='_blank' rel="noopener noreferrer" className='project-tech' >
-                    <img src={github} className='' style={{margin: '0.0rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: 'var(--grey)'}}></img>
+                    <img src={github} className='' style={{margin: '0', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: 'var(--grey)'}}></img>
                     {/* <h3 className='link' style={{fontSize: '1rem', marginTop: '0.5rem', color: 'var(--green)'}}>{technologies.get(t).title}</h3> */}
                 </a>
                 <Tip id={'gitHub'}><span>Source Code</span></Tip>
@@ -145,7 +127,7 @@ const Projects = ({passRef}) => {
             {projects[projectIndex].tech.map((t,i)=>
             <span>
                 <a key={technologies.get(t).title}  data-tip data-for={technologies.get(t).title + '-tip'} href={technologies.get(t).link} target='_blank' rel="noopener noreferrer" className='project-tech' >
-                        <img src={technologies.get(t).icon} alt={technologies.get(t).target} className='' style={{margin: '0.0rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: technologies.get(t).background}}></img>
+                        <img src={technologies.get(t).icon} alt={technologies.get(t).target} className='' style={{margin: '0', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: 'var(--grey)'}}></img>
                         {/* <h3 className='link' style={{fontSize: '1rem', marginTop: '0.5rem', color: 'var(--green)'}}>{technologies.get(t).title}</h3> */}
                     </a>
                     <Tip id={technologies.get(t).title + '-tip'}><span>View: {technologies.get(t).link}</span></Tip>

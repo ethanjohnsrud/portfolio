@@ -126,6 +126,9 @@ hr {
     left: 6%; */
     /* top: 2%; */
 }
+.experience-logo:hover {
+    transform:scale(1.35);
+}
 /* phone  */
 @media screen and (max-width: 769px){
     #experience-section {

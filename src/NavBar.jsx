@@ -1,6 +1,5 @@
-import {Button, Form, FormControl, Navbar, Nav, NavDropdown, NavbarBrand } from 'react-bootstrap';
-import React, {useState, useEffect, useRef, useCallback} from 'react';
-import ReactDOM from 'react-dom';
+import {Navbar, Nav} from 'react-bootstrap';
+import React, {useState, useEffect, useRef} from 'react';
 import './index.css';
 import head from './Assets/head.png';
 
@@ -34,10 +33,9 @@ const NavBar = ({coverRef, projectRef, experienceRef, technologiesRef, education
     {ref: contactRef, set: setContactActive},
   ];
   
-  const clearNavBar = () => refList.forEach(r=>r.set(false));
-
+  // const clearNavBar = () => refList.forEach(r=>r.set(false));
    
-  const scrollHighlight = useEffect(() => { //https://stackoverflow.com/questions/63544289/how-to-highlight-navbar-links-on-page-scroll-in-react
+useEffect(() => { //https://stackoverflow.com/questions/63544289/how-to-highlight-navbar-links-on-page-scroll-in-react
     const handleScroll = (e) => { const middle = window.scrollY + (window.innerHeight / 2);
       refList.forEach((ref)=>{
         if (ref.ref.current.offsetTop < middle && (ref.ref.current.offsetTop + ref.ref.current.offsetHeight) >= middle)
@@ -77,7 +75,7 @@ const NavBar = ({coverRef, projectRef, experienceRef, technologiesRef, education
             <Nav.Link className= {awardActive ? 'activeNav' : ''} href="#award-section" >Involvement</Nav.Link>
             <Nav.Link className= {contactActive ? 'activeNav' : ''} href="#contact-section" ><section style={{display: 'grid', width: '100%',  height: '100%', margin: '0', padding: '0', }}>
               <label id='contact-label' style={{gridColumn: '1'}}>Contact</label>
-            <img src={head} alt='picture' style={{gridColumn: '2', position: 'absolute', right: '1.0rem', bottom: '-2.0rem', height: '4.0rem', width: 'auto', backgroundColor: contactActive ? 'var(--orange)' : 'black', borderRadius: '50%', border: contactActive ? '2px solid black' : '2px solid var(--orange)', }}></img>
+            <img src={head} alt='Floating Head' style={{gridColumn: '2', position: 'absolute', right: '1.0rem', bottom: '-2.0rem', height: '4.0rem', width: 'auto', backgroundColor: contactActive ? 'var(--orange)' : 'black', borderRadius: '50%', border: contactActive ? '2px solid black' : '2px solid var(--orange)', }}></img>
             </section>
             </Nav.Link>
             
