@@ -25,11 +25,11 @@
     width: 100%;
   }
   .tech:hover {
-      z-index: 2;
+      z-index: 3;
       /* zoom: 2; */
       /* transform: scale(2); */
   }
-  .technologies-box {
+  .technologies-box-map {
     display: flex;
     flex-direction: row;
     align-items: top;
@@ -51,16 +51,70 @@
     /* zoom: 1.7; */
     transform: scale(2);
   }
+  .technologies-box-scroll {
+    display: none;
+    /* display: flex; */
+    flex-direction: row;
+    align-items: top;
+    justify-content: start;
+    flex-wrap: unset;
+    white-space:nowrap;
+    overflow: auto;           
+    overflow-x: scroll;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+  .tech-arrow-Nav {
+    display: none;
+    /* display: table; */
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    overflow: visible;
+    z-index: 5;
+    width: 7vw;
+    height: 15vh;
+    border: none;
+    color: whitesmoke;
+    font-size: 4.0rem;
+    background-color: black;
+    opacity: 0.7;
+    margin: 0;
+    padding: 0;
+  }
+  /* Remove default Button Outlining */
+  .tech-arrow-Nav:active, .tech-arrow-Nav:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
+  }
+  .tech-arrow-Nav:hover {
+    opacity: 0.95;
+    color: var(--orange);
+  }
+  .tech-arrow-Left {
+    left: 0;
+    border-top-right-radius: 1.0rem;
+    border-bottom-right-radius: 1.0rem;
+
+  }
+  .tech-arrow-Right {
+    right: 0;
+    border-top-left-radius: 1.0rem;
+    border-bottom-left-radius: 1.0rem;
+
+  }
+
   @media screen and (max-width: 992px){
-    .technologies-box {
-      justify-content: start;
-      flex-wrap: unset;
-      white-space:nowrap;
-      overflow: auto;           
-      overflow-x: scroll;
-      text-align: center;
-      width: 100%;
-      margin: 0;
+    .technologies-box-map {
+      display: none;
+    }
+    .technologies-box-scroll {
+      display: flex;
+    }
+    .tech-arrow-Nav {
+      display: table;
     }
     .tech-icon {
       /* width: 100%; */

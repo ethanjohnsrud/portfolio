@@ -32,7 +32,7 @@
     padding: 0.6rem;
     border-radius: 10px;
     background-color: black;
-    opacity: 85%;
+    opacity: 0.85;
   }
   /* Phone */
   @media screen and (max-width: 768px){
@@ -48,7 +48,7 @@
       margin: auto;
       bottom: 10vh;
       margin-bottom: -10vh;
-      opacity: 90%;
+      opacity: 0.9;
     }
   }
   

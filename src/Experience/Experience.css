@@ -49,6 +49,7 @@ hr {
     color: white;
 }
 .experience-note-box {
+    height: 100%;
     width: 25vw;
     display: flex;
     flex-direction: column;
@@ -64,6 +65,7 @@ hr {
     transform: scale(1.25);
 }
 .experience-project-box {
+    height: 100%;
     width: 25vw;
     display: flex;
     flex-direction: column;
@@ -121,6 +123,7 @@ hr {
 .experience-logo {
     position: relative;
     width: 8vw;
+    height: 100%;
     margin: 1.0rem 2vw 0 3vw;
     /* width: 8%;
     left: 6%; */

@@ -38,7 +38,7 @@ const NavBar = ({coverRef, projectRef, experienceRef, technologiesRef, education
 useEffect(() => { //https://stackoverflow.com/questions/63544289/how-to-highlight-navbar-links-on-page-scroll-in-react
     const handleScroll = (e) => { const middle = window.scrollY + (window.innerHeight / 2);
       refList.forEach((ref)=>{
-        if (ref.ref.current.offsetTop < middle && (ref.ref.current.offsetTop + ref.ref.current.offsetHeight) >= middle)
+        if (ref.ref != undefined && ref.ref.current != undefined && ref.ref.current.offsetTop < middle && (ref.ref.current.offsetTop + ref.ref.current.offsetHeight) >= middle)
           ref.set(true);
         else ref.set(false);
       });

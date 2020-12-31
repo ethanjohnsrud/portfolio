@@ -49,33 +49,37 @@ const Experience = ({passRef}) => {
                         <h3 className='experience-summary' style={{}}>{experience.summary}</h3>
                         <div className='experience-note-area'>
                             {experience.notes.map((note)=>
-                                <div key={note.title} className='experience-note-box' style={{background: note.description == '' ? 'black' : ''}}>
+                            <span key={note.title}>
+                                <a data-tip data-for={note.title + '-tip'} href={note.link} target='_blank' rel="noopener noreferrer" >
+                                <div  className='experience-note-box' style={{background: note.description == '' ? 'black' : ''}}>
+                                    <section>
                                     {note.link == '' ?
                                         <h3 className='experience-note-title' style={{color: note.description == '' ? 'whitesmoke' : ''}}>{note.title}</h3>
-                                        : <span>
-                                            <a data-tip data-for={note.title + '-tip'} href={note.link} target='_blank' rel="noopener noreferrer" >
-                                                <h3 className='link experience-note-title' style={{color: note.description == '' ? 'whitesmoke' : ''}}>{note.title}</h3>
-                                            </a>
-                                            <Tip id={note.title + '-tip'}><span>{note.prompt}</span></Tip>
-                                        </span>}
+                                        : <h3 className='link experience-note-title' style={{color: note.description == '' ? 'whitesmoke' : ''}}>{note.title}</h3>
+                                            }
                                     {note.description == '' ? <section></section>
                                         : <h3 className='experience-note-description' style={{}}>{note.description}</h3>}
+                                    </section>
                                 </div>
+                                </a>
+                                <Tip id={note.title + '-tip'}><span>{note.prompt}</span></Tip>
+                            </span>
                                 )}
                         </div>
                         <div className='experience-project-area'>
                             {experience.projects.map((pro)=>
-                                <div key={pro.title} className='experience-project-box' style={{}}>
-                                    {pro.link == '' ?
-                                        <h3 className='experience-project-title' style={{}}>{pro.title}</h3>
-                                        : <span>
-                                            <a data-tip data-for={pro.title + '-tip'} href={pro.link} >
-                                                <h3 className='link experience-project-title' style={{}}>{pro.title}</h3>
-                                            </a>
-                                            <Tip id={pro.title + '-tip'}><span>{pro.prompt}</span></Tip>
-                                        </span>}
-                                    <p class='experience-project-description' style={{}}>{pro.description}</p>
-                                </div>
+                            <span key={pro.title}>
+                                <a data-tip data-for={pro.title + '-tip'} href={pro.link}>
+                                    <div  className='experience-project-box' style={{}}>
+                                        {pro.link == '' ?
+                                            <h3 className='experience-project-title' style={{}}>{pro.title}</h3>
+                                            : <h3 className='link experience-project-title' style={{}}>{pro.title}</h3>
+                                            }
+                                        <p class='experience-project-description' style={{}}>{pro.description}</p>
+                                    </div>
+                                </a>
+                                <Tip id={pro.title + '-tip'}><span>{pro.prompt}</span></Tip>
+                            </span>
                             )}
                         </div>
                     </div>

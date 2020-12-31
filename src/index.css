@@ -4,6 +4,7 @@
   --grey: #707070;
   --green: #21421e;
   margin: 0;
+  overflow-x: hidden;
   font-family: 'Raleway', sans-serif;
   /* change font size also change reverence in Education */
   font-size: 20px;
@@ -14,10 +15,12 @@
   :root {
     /* change font size also change reverence in Education */
     font-size: 15px;
+    
   }
 }
 body {
   background-color: whitesmoke !important;
+  /* overflow-x: hidden; */
 }
 body .bg-dark {
   background-color: black !important;

@@ -1,3 +1,4 @@
+import React, {useRef, useState, useCallback, useEffect} from 'react';
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Awards.css'
@@ -39,16 +40,41 @@ const Awards = ({passRef}) => {
         {title: 'First Robotics',  description: 'Team #5434 Falcon Robotics, placed at State Junior and Senior Year.   Experience in 3D design, LabVIEW, and Manufacturing.', source: 'https://www.firstinspires.org/', cover: frcImage, prompt: 'See FRC'},
         {title: 'Greenhouse Business',  description: 'Operated a plant growing business in high school.  Performed analysis on growth records, business expenses, and marketing publications.', source: greenhouse, cover: greenhouseImage, prompt: 'See Publications'},
     ];
+    
+    const scrollRef = useRef(null); //Reference Outer Scroll Box
+    const firstItem = useRef(null); //Reference First Item to get width, as adjusts with screen size = responsive
+    const [leftVisible, setLeftVisible] = useState(false); //Left Scroll Arrow
+    const [rightVisible, setRightVisible] = useState(true); //Right Scroll Arrow
+     //Execute Once on Initial Render
+    useEffect(() => {
+        //Start adjusting to show scroll overlay arrows
+        window.addEventListener('transitionend',onScroll);},[]);
+
+        //Called on change in horizontal scroll determines whether scroll arrows are at the end and visible
+        const displayLeft = () => scrollRef.current.scrollLeft == 0 ? false : true;
+        const displayRight = () => scrollRef.current.scrollLeft > (scrollRef.current.scrollWidth - (scrollRef.current.offsetWidth*1.1)) ? false : true;
+        const onScroll = useCallback((event) => {
+            // if(displayLeft() != leftVisible) 
+                setLeftVisible(displayLeft());
+            // if(displayRight() != rightVisible) 
+                setRightVisible(displayRight());
+    }, []);
+        
+    //OnClick Action horizontal scroll shift of overlay buttons
+    const scrollLeft = () => scrollRef.current.scrollLeft -= firstItem.current.offsetWidth || 300;
+    const scrollRight = () => scrollRef.current.scrollLeft += firstItem.current.offsetWidth || 300;
 
     return (<div id='award-section' ref={passRef} class='no-padding no-margin w-100' style={{paddingTop: '3.0rem'}}>
         <h1 id='title' >Recognition</h1>
-        <div id='scroll-box'  >
-            {accomplishments.map((award)=> 
-            <span>
-                <a key={award.title}  data-tip data-for={award.title + '-tip'} className='award' href={award.source} target='_blank' rel="noopener noreferrer"  style={{textDecoration: 'none'}}>
+        {leftVisible ? <div class='award-arrow-Nav award-arrow-Left' style={{height: scrollRef.current == null ? 353 : scrollRef.current.offsetHeight, opacity: ''}} onClick={() => scrollLeft()}><div style={{ display: 'table-cell', verticalAlign: 'middle'}}>&lt;</div></div> : <div></div>}
+        {rightVisible ? <div class='award-arrow-Nav award-arrow-Right' style={{height: scrollRef.current == null ? 353 : scrollRef.current.offsetHeight, opacity: ''}} onClick={() => scrollRight()}><div style={{ display: 'table-cell', verticalAlign: 'middle'}}>&gt;</div></div> : <div></div>}
+        <div ref={scrollRef} id='award-scroll-box'  >
+            {accomplishments.map((award,i)=> 
+            <span key={award.title} ref={i==0?firstItem:null}>
+                <a data-tip data-for={award.title + '-tip'} className='award' href={award.source} target='_blank' rel="noopener noreferrer"  style={{textDecoration: 'none'}}>
                     <h3 className='award-title'>{award.title}</h3>
                     <img src={award.cover} alt={award.title} className='award-image' ></img>
-                    <p className='award-text' style={{opacity: '90%'}}>{award.description}</p>
+                    <p className='award-text' style={{opacity: ''}}>{award.description}</p>
                 </a>
                 <Tip id={award.title + '-tip'}><span>{award.prompt}</span></Tip>
             </span>)}

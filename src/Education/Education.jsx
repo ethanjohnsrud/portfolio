@@ -7,26 +7,17 @@ import './Education.css'
 import fhsDiploma from '../Assets/FHS-Diploma.pdf';
 import umdDiploma from '../Assets/university-transcript.pdf';
 
-const origional=[ //new line is new command
+const original=[ //new line is new command
     {text: `npm install`, command: true, link: '', prompt:''},
     {text: `node ./education.js`, command: true, link: '', prompt: ''},
-//High School
-{text: `education.highSchool`, command: true, link: '', prompt: ''},
-{text: `> Faribault High School`, command: false, link: 'http://www.faribault.k12.mn.us', prompt: 'View FHS'},
-{text: `>\tGPA: 3.99`, command: false, link: '', prompt: ''},
-{text: `>\tDiploma`, command: false, link: fhsDiploma, prompt: 'View Document'},
-{text: `education.highSchool.activities`, command: true, link: '', prompt: ''},
-{text: `*\t FIRST Robotics Team #5434`, command: false, link: 'https://www.faribaultfalcons.com/robotics', prompt: 'View FRC'},
-{text: `*\t National Honor Society`, command: false, link: 'https://www.nshss.org/', prompt: 'View NSHSS'},
-{text: `*\t BSA :: Eagle Scout`, command: false, link: 'https://nesa.org/', prompt: 'View NESA'},
 
 //University
 {text: `education.university`, command: true, link: '', prompt: ''},
 {text: `> University of Minnesota`, command: false, link: 'https://www.d.umn.edu/', prompt: 'View University'},
 {text: `> Major: B.S. Computer Science`, command: false, link: 'https://onestop2.umn.edu/pcas/viewCatalogProgram.do?programID=439&strm=1179&campus=UMNDL', prompt: 'View Requirements'},
 {text: `> Minor: Business Finance`, command: false, link: 'https://onestop2.umn.edu/pcas/viewCatalogProgram.do?programID=2296&strm=1209&campus=UMNDL', prompt: 'View Requirements'},
-{text: `>ABET Accredited: CAC`, command: false, link: 'https://www.abet.org/', prompt: 'View ABET'},
-{text: `>\t GPA: 3.35`, command: false, link: '', prompt: ''},
+{text: `> ABET Accredited: CAC`, command: false, link: 'https://www.abet.org/', prompt: 'View ABET'},
+{text: `>\t GPA: 3.4`, command: false, link: '', prompt: ''},
 {text: `>\t Diploma`, command: false, link: umdDiploma, prompt: 'View Document'},
 {text: `education.university.relevantCourses`, command: true, link: '', prompt: ''},
 {text: `*\t Computer Security >> Encryption && Vulnerabilities`, command: false, link: '', prompt: ''},
@@ -42,8 +33,17 @@ const origional=[ //new line is new command
 {text: `*\t Front End Design >> React - CSS - HTML - Express - NodeJS`, command: false, link: 'https://reactjs.org/', prompt: 'Visit: reactjs.org'},
 {text: `*\t Flutter Mobile Development`, command: false, link: 'https://flutter.dev/', prompt: 'Visit: flutter.dev'},
 {text: `*\t HTTP API && Socket.IO`, command: false, link: 'https://socket.io/', prompt: 'Visit: socket.IO'},
-];
 
+//High School
+{text: `education.highSchool`, command: true, link: '', prompt: ''},
+{text: `> Faribault High School`, command: false, link: 'http://www.faribault.k12.mn.us', prompt: 'View FHS'},
+{text: `>\tGPA: 4.0`, command: false, link: '', prompt: ''},
+{text: `>\tDiploma`, command: false, link: fhsDiploma, prompt: 'View Document'},
+{text: `education.highSchool.activities`, command: true, link: '', prompt: ''},
+{text: `*\t FIRST Robotics Team #5434`, command: false, link: 'https://www.faribaultfalcons.com/robotics', prompt: 'View FRC'},
+{text: `*\t National Honor Society`, command: false, link: 'https://www.nshss.org/', prompt: 'View NSHSS'},
+{text: `*\t BSA :: Eagle Scout`, command: false, link: 'https://nesa.org/', prompt: 'View NESA'},
+];
 
 const Education = ({passRef}) => {
     const [renderAnimation, setRenderAnimation] = useState(false);
@@ -55,8 +55,8 @@ const Education = ({passRef}) => {
         const fontWidth = ((fontSize*0.8*0.62)); //font-size: 0.8rem 0.62 constant ratio ???
         setMaxCharacters(width.current ? (Math.floor((width.current.clientWidth-(fontSize*1.5*2)) / fontWidth)) : 50); 
         setMaxCommandCharacters(width.current ? (Math.floor((width.current.clientWidth-(fontSize*1.5*2)) / fontWidth)-8) : 50); //ethan:~$ == 8 characters && (20)*1.5) == 1.5rem padding 
-        console.log(`Terminal width is: ${width.current ? width.current.clientWidth : 0}`, 
-            `Max Characters set: ${maxCharacters}`);
+        // console.log(`Terminal width is: ${width.current ? width.current.clientWidth : 0}`, 
+            // `Max Characters set: ${maxCharacters}`);
         //Listener to start animation, first time in view
             window.addEventListener('scroll',onView);
     }, [width.current,]);
@@ -64,7 +64,8 @@ const Education = ({passRef}) => {
 
         //Start typing on scroll, only first occurrence
         const onView = useCallback((event) => {
-              if (passRef != null && passRef.current.offsetTop < window.scrollY) {
+            // console.log('HERE ::', passRef.current.offsetTop, window.scrollY, passRef.current.height, passRef.current.offsetHeight);
+              if (passRef != null && passRef.current != null && ((passRef.current.offsetTop - passRef.current.offsetHeight) < window.scrollY)) {
             // if((document.getElementById('education-section').getBoundingClientRect().top-(document.getElementById('education-section').getBoundingClientRect().height *2 )) < 0){
                 setRenderAnimation(true);
                 console.log('Starting Terminal Animation');
@@ -81,7 +82,7 @@ const Education = ({passRef}) => {
     // const expression = new RegExp(/.{1,15}\b|.{15}/g); //Temp test with line-max = 15;
     const extraSpacingExpression = new RegExp(/[ ]{2,}/g);  //Regular Expression to identify punctuation
     let lines = [];
-    origional.forEach((line)=>{ //ethan:~$ == 8 characters
+    original.forEach((line)=>{ //ethan:~$ == 8 characters
         if(line.length > maxCommandCharacters) {
             const separate = line.match(commandExpression) || []; //temp get first line
                 const first = line.substring(0, separate[0].length);
@@ -106,14 +107,14 @@ const Education = ({passRef}) => {
     console.log('final', lines);
     
     return (<div id='education-section' ref={passRef}  class='container-fluid row no-padding no-margin w-100' style={{position: 'relative',  left: 0, right: 0, paddingTop: '3.0rem'}}>
-            <div className='col-xl-6 col-lg-8 col-md-12 w-100' style={{margin: '0 auto' }}>
+            <div className='col-xl-6 col-lg-10 col-md-12 w-100' style={{margin: '0 auto'}}>
                 <div style={{textAlign: 'center'}}>
                 <section class='console console-header' >
                     <label className='console-header-title'>Education</label>
                     <button onClick={()=>setRenderAnimation(!renderAnimation)} data-tip data-for={'skip-tip'} className={renderAnimation ? 'btn btn-outline-danger' : 'btn btn-outline-success'} style={{padding: '0.1rem 0.5rem', position: 'absolute', right: '0.75rem', top: '0.75rem', margin: '0 0 0 auto' }}>{renderAnimation ? 'SKIP' : 'START'}</button>
                     <Tip id={'skip-tip'}><span>Animation</span></Tip>
                 </section>
-                <section ref={width} class='console'>
+                <section ref={width} class='console' style={{minHeight: `calc(${original.length} * 0.85 * 1.5rem + 6.5rem)`, overflow: 'hidden'}}>
                 {renderAnimation ?      
                 <Typing speed={0}>
                 {lines.map((line, i) => line.command ? 
