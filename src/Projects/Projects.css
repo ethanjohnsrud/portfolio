@@ -38,6 +38,7 @@
     overflow: hidden;
     /* min-width: 10.0rem;
     max-width: 15.0rem; */
+    cursor: pointer;
   }
   @media screen and (max-width: 600px){
     .project-list {
@@ -102,36 +103,45 @@
     padding: 0.35rem;
     border-radius: 0.3rem;
     background-color: black;
-    opacity: 90%;
+    opacity: 0.9;
   }
   
 /* Color bottom tabs: page selection  */
-.carousel-indicators li {
+.carousel-indicators-box {
+  /* z-index: 10; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0.5rem;
+  /* margin-bottom: -2rem; */
+  /* height: 100%; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+.carousel-indicators {
+  position: relative;
+  display: block;
     background-color: var(--green);
-    /* height: 0.75rem;
-    width: 0.75rem;
-    margin: auto 0.35rem; */
     height: 1.0rem;
     width: 1.0rem;
     margin: auto 0.5rem;
+    cursor: pointer;
 }
-.carousel-indicators .active {
+.carousel-indicators-active {
+  display: block;
   background-color: var(--orange);
+  height: 1.0rem;
+  width: 1.0rem;
+  margin: auto 0.5rem;
+  cursor: pointer;
 }
-ol {
-    padding: 0;
-    margin: 0;
-}
-/* .carousel-caption {
-    position: absolute;
-    z-index: 5;
-    margin:0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-} */
 .carousel-title {
-    z-index: 3;
+    z-index: 7;
     position: absolute;
     top:0;
     left: 0;
@@ -147,37 +157,80 @@ ol {
     padding: 0.5rem;
 }
 .carousel-description-box {
-    position: absolute;
-    bottom:0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;    
+  position: absolute;
+  bottom:0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;    
 }
 .carousel-description {
-    width: 70%;
-    margin: 0 auto;
-    padding: 0.40rem;
-    padding-bottom: 2.0rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    background-color: black;
-    
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.8rem;
-    line-height: 1.0rem;
-    letter-spacing: 0.15rem;
-    text-decoration: none;
-    text-align: center;
-    color: var(--orange);
-    opacity: 0.9;
+  width: 70%;
+  margin: 0 auto;
+  padding: 0.40rem;
+  padding-bottom: 2.0rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background-color: black;
+  
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.0rem;
+  letter-spacing: 0.15rem;
+  text-decoration: none;
+  text-align: center;
+  color: var(--orange);
+  opacity: 0.85;
 }
 .carousel-box {
+  display: block;
+  position: relative;
+  overflow: hidden;
   /* width:100%; */
   margin: 0;
 }
+.carousel-content {
+  /* width: 100%;
+  height: 100%; */
+  animation-duration: 1s;
+  animation-name: slideZoom;
+}
+
+@keyframes slideLeft {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+@keyframes slideRight {
+  from {
+    margin-right: 100%;
+  }
+  to {
+    margin-right: 0%;
+  }
+}
+@keyframes slideUp {
+  from {
+    margin-bottom: -100%;
+  }
+  to {
+    margin-bottom: 0%;
+  }
+}
+@keyframes slideZoom {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1.0);
+  }
+}
+
 @media screen and (min-width: 992px){
   .carousel-box {
    margin: 0 10%;
@@ -228,4 +281,44 @@ ol {
   -webkit-transition: -webkit-transform .5s ease-in-out;
   -o-transition: -o-transform .5s ease-in-out;
   transition: transform .5s ease-in-out;
+}
+.project-arrow {
+  display: table;
+  /* margin-top: 2.7rem; */
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  height: 90%;
+  /* margin: auto 0; */
+  text-align: center;
+  z-index: 5;
+  width: 10vw;
+  border: none;
+  color: whitesmoke;
+  font-size: 5.0rem;
+  background-color: black;
+  opacity: 0.5;
+  cursor: pointer;
+}
+/* Remove default Button Outlining */
+.project-arrow:active, .project-arrow:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
+}
+.project-arrow:hover {
+  opacity: 0.95;
+  color: var(--orange);
+}
+.project-arrow-Left {
+  left: 0;
+  border-top-right-radius: 1.0rem;
+  border-bottom-right-radius: 1.0rem;
+
+}
+.project-arrow-Right {
+  right: 0;
+  border-top-left-radius: 1.0rem;
+  border-bottom-left-radius: 1.0rem;
+
 }

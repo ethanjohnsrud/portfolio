@@ -120,9 +120,8 @@ const Education = ({passRef}) => {
                 {lines.map((line, i) => line.command ? 
                     <div key={i} class = 'text-block' style={{marginTop: '0.5rem'}}><Typing.Speed ms={0}/><span className='text' style={{color: 'var(--orange)', marginLeft: 0,}}>ethan:~$</span><Typing.Delay ms={200} /><Typing.Speed ms={20}/><p className='text'>{line.text}</p><Typing.Delay ms={500} /></div>
                     : line.link !== '' ? 
-                        <span>
-                            <a key={i} href={line.link} data-tip data-for={line.link + '-tip'} target='_blank' rel="noopener noreferrer" class = 'text-block'><Typing.Speed ms={0}/><p className='text' style={{color: 'whitesmoke'}}>{line.text}</p></a>
-                            <Tip id={line.link + '-tip'}><span>{line.prompt}</span></Tip>
+                        <span class = 'text-block'>
+                            <Typing.Speed ms={0}/><p className='text' style={{color: 'whitesmoke'}}>{line.text}</p>
                         </span>
                     : <div key={i} class = 'text-block'><Typing.Speed ms={0}/><p className='text' style={{color: 'whitesmoke'}}>{line.text}</p><Typing.Delay ms={300} /></div>
                     )}            

@@ -35,7 +35,7 @@
     opacity: 0.85;
   }
   /* Phone */
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 992px){
     #name {
       width: 100%;
       white-space: pre-wrap;
