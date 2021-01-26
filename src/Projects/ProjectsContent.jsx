@@ -2,49 +2,12 @@
 import React, {useState, useCallback, useEffect, useRef} from 'react';
 import Tip from 'react-tooltip';
 import Player from 'react-video-js-player';
+import { detect } from 'detect-browser';
 // import Carousel from 'react-bootstrap/Carousel'
 import '../index.css';
 import './Projects.css';
-import projects from './ProjectsData';
+import {projects, technologies} from './ProjectsData';
 import github from '../Assets/github-logo.png';
-import scrum from '../Assets/agile-scrum-logo.png';
-import oop from '../Assets/oop-logo.png';
-import unix from '../Assets/terminal-logo.png';
-import linux from '../Assets/linux-logo.png';
-import web from '../Assets/web-logo.png';
-import react from '../Assets/react-logo.png';
-import node from '../Assets/node-logo.png';
-import dart from '../Assets/dart-logo.png';
-import flutter from '../Assets/flutter-logo.png';
-import c from '../Assets/C++-logo.png';
-import java from '../Assets/java-logo.png';
-import javafx from '../Assets/javafx-logo.png';
-import express from '../Assets/express-logo.png';
-import slate from '../Assets/slate.png';
-import bootstrap from '../Assets/bootstrap.png';
-import socket from '../Assets/socket-logo.png';
-import android from '../Assets/android-studio-logo.png';
-
-const technologies = new Map();
-technologies.set('github', {title: 'Git Hub', link: 'https://github.com/', icon: github, background: 'var(--grey)'});
-technologies.set('agile', {title: 'Agile Scrum', link: 'https://www.scrum.org/resources/what-is-scrum', icon: scrum, background: 'var(--grey)'});
-technologies.set('oop', {title: 'Object Oriented Programming', link: 'https://searchapparchitecture.techtarget.com/definition/object-oriented-programming-OOP', icon: oop, background: 'var(--grey)'});
-technologies.set('linux', {title: 'Linux Environment', link: 'https://www.linux.org/', icon: linux, background: 'var(--grey)'});
-technologies.set('web', {title: 'JavaScript HTML CSS', link: 'https://www.ecma-international.org/', icon: web, background: 'var(--grey)'});
-technologies.set('react', {title: 'React JS', link: 'http://reactjs.org', icon: react, background: 'var(--grey)'});
-technologies.set('node', {title: 'Node JS', link: 'https://nodejs.org/en/', icon: node, background: 'var(--grey)'});
-technologies.set('flutter', {title: 'Flutter', link: 'https://flutter.dev/', icon: flutter, background: 'var(--grey)'});
-technologies.set('dart', {title: 'Dart', link: 'https://dart.dev/', icon: dart, background: 'var(--grey)'});
-technologies.set('c++', {title: 'C++', link: 'https://www.cplusplus.com/', icon: c, background: 'var(--grey)'});
-technologies.set('java', {title: 'Java', link: 'https://www.java.com/en/', icon: java, background: 'var(--grey)'});
-technologies.set('javafx', {title: 'JavaFX', link: 'https://openjfx.io/', icon: javafx, background: 'var(--grey)'});
-technologies.set('socket', {title: 'Socket.IO', link: 'https://socket.io/', icon: socket, background: 'var(--grey)'});
-technologies.set('express', {title: 'Express-js', link: 'https://expressjs.com/', icon: express, background: 'var(--grey)'});
-technologies.set('slate', {title: 'Slate-js', link: 'https://docs.slatejs.org/', icon: slate, background: 'var(--grey)'});
-technologies.set('bootstrap', {title: 'Bootstrap', link: 'https://getbootstrap.com/', icon: bootstrap, background: 'var(--grey)'});
-technologies.set('android', {title: 'Android Studio', link: 'https://developer.android.com/studio/', icon: android, background: 'var(--grey)'});
-
-
 
 
 //Custom Hook : Interval for autoplay
@@ -63,18 +26,30 @@ function useAutoPlay(callback, delay) {
     }, [delay]);
   }
 
-const ProjectsContent = ({passRef}) => {
+//Custom Hook : Reference Current State in useCalback : https://scastiel.dev/posts/2019-02-19-react-hooks-get-current-state-back-to-the-future/
+const useRefState = initialValue => {
+    const [state, setState] = useState(initialValue);
+    const stateRef = useRef(state);
+    useEffect(
+      () => { stateRef.current = state },
+      [state]
+    );
+    return [state, stateRef, setState]
+  }
+
+const ProjectsContent = () => {
     const carouselRef = useRef(null); //Reference for height of left/right arrows
     //Configure Height in Pixels for video player, runs once on load
     const [carouselHeight, setCarouselHeight] = useState(744);
-    useEffect(()=>setCarouselHeight(carouselRef.current.offsetHeight));
+    useEffect(()=>(carouselRef != undefined && carouselRef.current != undefined) ? setCarouselHeight(carouselRef.current.offsetHeight) : null, []);
         // useCallback(()=>{
         //     if(caroselRef.current != null) setArrowHeight(caroselRef.current.offsetHeight);
         //     console.log('Height is: ', arrowHeight);
         // },[caroselRef.current]);
-
+   
 //Controls for Display in Carousel
-    const [previewMode, setPreviewMode] = useState(true);
+    const [previewMode, previewModeRef, setPreviewMode] = useRefState(true);
+    const getPreviewMode = () => previewMode;
     const [projectIndex, setProjectIndex] = useState(0);       
     const [pageIndex, setPageIndex] = useState(0);
 
@@ -88,26 +63,75 @@ const ProjectsContent = ({passRef}) => {
     const [autoPlay, setAutoPlay] = useState(true);
         //Reset Page on Project Change
         useEffect(()=>{
-            setPageIndex(0);     
+            setPageIndex(0);  
+            // autoPlay(true);
         }, [previewMode, projectIndex]);
 
     //Regular Interval, AutoPlay only for Preview Mode
     useAutoPlay(()=>{
-        if(previewMode && autoPlay) { 
+        if(previewMode) { // && autoPlay
             setProjectIndex(previous => previous == projects.length-1 ? 0 : previous + 1);
         } 
-    }, 3500);
+    }, 5000);
 
     //Whether to Display Side Arrows
     const allowPrevious = () => previewMode ? false : (pageIndex > 0);
-    const allowNext = () => previewMode ? false : (pageIndex < (projects[projectIndex].pages.length-1));    
+    const allowNext = () => previewMode ? false : (pageIndex < (projects[projectIndex].pages.length-1));   
 
-    return (<div style={{}}>        
-            <div key= {'carousel'}  ref={carouselRef} data-tip data-for={'carousel-tip'} className='carousel-box'  onClick={()=>{setPreviewMode(false); }} onMouseEnter={() => {setAutoPlay(false); }} onMouseLeave={() => {setAutoPlay(true); }} style={{margin: '0 auto',}}>
+    //Restart Animation when not in View
+    const contentRef = useRef(null);
+    useEffect(()=>window.addEventListener('scroll',onProjectView),[]); //Execute Once onLoad
+      //Start typing on scroll, only first occurrence
+      const onProjectView = useCallback((event) => {
+          if(!previewModeRef.current && ((contentRef != undefined && contentRef.current != undefined) && (window.scrollY > (contentRef.current.offsetTop + contentRef.current.offsetHeight)))
+            && (detect() != undefined && detect().name == 'chrome')) { //Only Chrome browser restarts Preview
+            setPreviewMode(true);
+            // setAutoPlay(true);
+            console.log('Restarting Project Preview Mode');
+          } else if(previewModeRef.current && ((contentRef != undefined && contentRef.current != undefined) && (window.scrollY > (contentRef.current.offsetTop + contentRef.current.offsetHeight)))
+          && (detect() == undefined || detect().name != 'chrome')) { //Non Chrome preview still active
+            setPreviewMode(false);
+            // setAutoPlay(false);
+
+            console.log('Stopping Project Preview Mode');
+          }
+        // console.log('HERE ::', previewModeRef.current, contentRef.current.offsetTop, window.scrollY, contentRef.current.offsetBottom, contentRef.current.offsetHeight);
+    }, []);
+    
+//Projects Scroll Box Management
+    const projectScrollBoxRef = useRef(null); //Reference Outer Scroll Box
+    const sampleItem = useRef(null); //Reference First Item to get width, as adjusts with screen size = responsive
+    const [leftVisible, setLeftVisible] = useState(false); //Left Scroll Arrow
+    const [rightVisible, setRightVisible] = useState(true); //Right Scroll Arrow
+
+        //Called on change in horizontal scroll determines whether scroll arrows are at the end and visible
+        const displayLeft = () => (projectScrollBoxRef != undefined && projectScrollBoxRef.current != undefined) ? projectScrollBoxRef.current.scrollLeft == 0 ? false : true : true;
+        const displayRight = () => (projectScrollBoxRef != undefined && projectScrollBoxRef.current != undefined) ? projectScrollBoxRef.current.scrollLeft > (projectScrollBoxRef.current.scrollWidth - (projectScrollBoxRef.current.offsetWidth*1.1)) ? false : true : true;
+    useEffect(()=>{
+        // console.log('checking arrows', displayLeft(), displayRight());
+        if(displayLeft() != leftVisible) 
+            setLeftVisible(displayLeft());
+        if(displayRight() != rightVisible) 
+            setRightVisible(displayRight());
+    }); //omitting brackets, is called on every state change
+        
+    //OnClick Action horizontal scroll shift of overlay buttons
+    const scrollLeft = () => (projectScrollBoxRef != undefined && projectScrollBoxRef.current != undefined) ? projectScrollBoxRef.current.scrollLeft -= sampleItem.current.offsetWidth || 200 : null;
+    const scrollRight = () => (projectScrollBoxRef != undefined && projectScrollBoxRef.current != undefined) ? projectScrollBoxRef.current.scrollLeft += sampleItem.current.offsetWidth || 200 : null;
+
+    //Paused on Hover : onMouseEnter={() => {setAutoPlay(false); }} onMouseLeave={() => {setAutoPlay(true); }}
+    return (<div ref={contentRef} style={{}}>   
+            <div key= {'carousel'}  ref={carouselRef} data-tip data-for={'carousel-tip'} className='carousel-box'  onClick={()=>{setPreviewMode(false); }}  style={{margin: '0 auto',}}>
                 <div className='carousel-content' key={projects[projectIndex].pages[pageIndex].target+pageIndex+projects[projectIndex].title} style={{height: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '100%' : '', width: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '100%' : '', maxHeight: '75vh', overflowY: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? 'scroll' : 'hidden', margin: '0.25rem auto'}} >
                 {projects[projectIndex].pages[pageIndex].type == 'video' ?
-                <Player playing src={projects[projectIndex].pages[pageIndex].content}  height={carouselRef.current.offsetHeight} controls={false} bigPlayButtonCentered={true} autoplay={true} style={{height: '100%', width: '100%', margin: '0 auto', textAlign: 'center'}} className='project-image'/>
-                : <img  className="d-block project-image" src={projects[projectIndex].pages[pageIndex].content} alt={projects[projectIndex].pages[pageIndex].target}  style={{width: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '100%' : '100%', maxHeight: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '' : '75vh'}}/>}
+                <Player playing src={projects[projectIndex].pages[pageIndex].content}  height={(carouselRef == undefined || carouselRef.current == undefined || carouselRef.current == null) ? 744 : carouselRef.current.offsetHeight} controls={false} bigPlayButtonCentered={true} autoplay={true} style={{height: '100%', width: '100%', margin: '0 auto', textAlign: 'center', overflowX: 'hidden'}} className='project-image'/>
+                : projects[projectIndex].pages[pageIndex].type == 'additional-features' 
+                ? <div className='d-block project-image' style={{width: '100%', height: 'calc(min(1200px, 100vw) * 0.537)', maxHeight: '75vh', backgroundColor: 'black'}}>
+                    <div className='project-additional-header'>Features Coming Soon</div>
+                    {projects[projectIndex].pages[pageIndex].features.map((feature)=><div className='project-additional-text'>&#10026;{'\t'+feature}</div>)}
+                </div>
+                : <img  className="d-block project-image" src={projects[projectIndex].pages[pageIndex].content} alt={projects[projectIndex].pages[pageIndex].target}  style={{width: '100%', maxHeight: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '' : '75vh', maxWidth: '1200px'}}/>
+                }
                     <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
                     {projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? <div></div>
                     : <div id='describe-box' className='carousel-description-box' >
@@ -118,7 +142,7 @@ const ProjectsContent = ({passRef}) => {
                 : <Tip id={'carousel-tip'}><span>{previewMode ? 'Click to View' : 'Paused while Hovering'}</span></Tip>}
                 
                 <div className='carousel-indicators-box'>
-                     {previewMode ? <div></div> : projects[projectIndex].pages.map((page, i) => <div className={i==pageIndex ? 'carousel-indicators-active' : 'carousel-indicators'} onClick={()=>setPageIndex(i)}></div>)}
+                     {previewMode ? <div></div> : projects[projectIndex].pages.map((page, i) => <div className={`${(page.type == 'additional-features') ? 'carousel-indicators-features' : 'carousel-indicators'} ${(i==pageIndex) ? (page.type == 'additional-features') ? 'carousel-indicators-features-active' : 'carousel-indicators-active' : ''}`} style={{borderRadius: (page.type == 'video') ? '50%' : ''}} onClick={()=>setPageIndex(i)}>{(page.type == 'additional-features') ? <section>&#9733;</section>:<section></section>}</div>)}
                 </div>
                 {allowPrevious() ? <div key= {'previous'}  data-tip data-for={'previous-tip'} class='project-arrow project-arrow-Left' style={{}} onClick={() => allowPrevious() ? previewMode ? setProjectIndex(previous => previous - 1) : setPageIndex(previous => previous - 1):{}}><div style={{ display: 'table-cell', verticalAlign: 'middle'}}>&lt;</div></div> : <div></div>}
                 <Tip id={'previous-tip'}><span>Previous Slide</span></Tip>
@@ -146,13 +170,15 @@ const ProjectsContent = ({passRef}) => {
                     <Tip id={technologies.get(t).title + '-tip'}><span>View: {technologies.get(t).link}</span></Tip>
                 </span>)}
         </div> : <div key={'active-project'}></div>}
-        <div id='project-scroll-box'  >
+            {leftVisible ? <div class='project-scroll-arrow-Nav project-scroll-arrow-Left' style={{height: (projectScrollBoxRef == undefined || projectScrollBoxRef.current == undefined || projectScrollBoxRef.current == null) ? 200 : projectScrollBoxRef.current.offsetHeight, opacity: ''}} onClick={() => scrollLeft()}><div style={{ display: 'table-cell', verticalAlign: 'middle'}}>&lt;</div></div> : <div></div>}
+            {rightVisible ? <div class='project-scroll-arrow-Nav project-scroll-arrow-Right' style={{height: (projectScrollBoxRef == undefined || projectScrollBoxRef.current == undefined || projectScrollBoxRef.current == null) ? 200 : projectScrollBoxRef.current.offsetHeight, opacity: ''}} onClick={() => scrollRight()}><div style={{ display: 'table-cell', verticalAlign: 'middle'}}>&gt;</div></div> : <div></div>}
+        <div ref={projectScrollBoxRef} id='project-list-scroll-box'>
             {projects.map((project,i)=> (!previewMode && projectIndex == i) ? <div></div> :
-                <span>
+                <span ref={(i==0) ? sampleItem : (!previewMode && projectIndex == 0 && i==1) ? sampleItem : null} >
                     <div key={project.target} data-tip data-for={project.target + i + '-tip'} className='project-list' onClick={()=>{setPreviewMode(false); setProjectIndex(i); setPageIndex(0); }}>
                         <h3 className='project-list-title'>{project.title}</h3>
                         <img src={project.pages[0].content} alt={project.target} className='project-list-image' ></img>
-                        <p className='project-list-text' style={{opacity: ''}}>{project.pages[0].description.split('.',1)[0]+'.'}</p>
+                        <p className='project-list-text' style={{opacity: ''}}>{project.caption}</p>
                     </div>
                     <Tip id={project.target + i + '-tip'}><span>View {project.title}</span></Tip>
                 </span>)}

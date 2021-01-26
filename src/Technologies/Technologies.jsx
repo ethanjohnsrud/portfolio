@@ -3,9 +3,9 @@ import React, {useRef, useState, useCallback, useEffect} from 'react';
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Technologies.css'
+//Guideline: Logo Images saved: 140px Tall 16-png transparent background
 import scrum from '../Assets/agile-scrum-logo.png';
 import oop from '../Assets/oop-logo.png';
-import unix from '../Assets/terminal-logo.png';
 import linux from '../Assets/linux-logo.png';
 import web from '../Assets/web-logo.png';
 import react from '../Assets/react-logo.png';
@@ -19,6 +19,9 @@ import express from '../Assets/express-logo.png';
 import socket from '../Assets/socket-logo.png';
 import github from '../Assets/github-logo.png';
 import bootstrap from '../Assets/bootstrap.png';
+import hooks from '../Assets/hooks.png';
+import photoshop from '../Assets/photoshop.png';
+import illustrator from '../Assets/illustrator.png';
 
 
 const Technologies = ({passRef}) => {
@@ -30,6 +33,7 @@ const Technologies = ({passRef}) => {
         {title: 'Linux Environment', link: 'https://www.linux.org/', icon: linux},
         {title: 'JavaScript HTML CSS', link: 'https://www.ecma-international.org/', icon: web},
         {title: 'React JS', link: 'http://reactjs.org', icon: react},
+        {title: 'React Hooks', link: 'https://reactjs.org/docs/hooks-overview.html', icon: hooks},
         {title: 'Node JS', link: 'https://nodejs.org/en/', icon: node},
         {title: 'Flutter', link: 'https://flutter.dev/', icon: flutter},
         {title: 'Dart', link: 'https://dart.dev/', icon: dart},
@@ -38,28 +42,35 @@ const Technologies = ({passRef}) => {
         {title: 'JavaFX', link: 'https://openjfx.io/', icon: javafx},
         {title: 'Bootstrap', link: 'https://getbootstrap.com/', icon: bootstrap},
         {title: 'Socket.IO', link: 'https://socket.io/', icon: socket},
+        {title: 'Photoshop', link: 'https://www.adobe.com/products/photoshop.html', icon: photoshop},
+        {title: 'Illustrator', link: 'https://www.adobe.com/products/illustrator.html', icon: illustrator},
     ];
     const scrollRef = useRef(null); //Reference Outer Scroll Box
     const [leftVisible, setLeftVisible] = useState(false); //Left Scroll Arrow
-    const [rightVisible, setRightVisible] = useState(true); //Right Scroll Arrow
-     //Execute Once on Initial Render
-    useEffect(() => {
-        //Start adjusting to show scroll overlay arrows
-        window.addEventListener('transitionend',onScroll);},[]);
+    const [rightVisible, setRightVisible] = useState(true); //Right Scroll Arrow   
 
         //Called on change in horizontal scroll determines whether scroll arrows are at the end and visible
-        const displayLeft = () => scrollRef.current.scrollLeft == 0 ? false : true;
-        const displayRight = () => scrollRef.current.scrollLeft > (scrollRef.current.scrollWidth - (scrollRef.current.offsetWidth*1.1)) ? false : true;
-        const onScroll = useCallback((event) => {
-            // if(displayLeft() != leftVisible) 
-                setLeftVisible(displayLeft());
-            // if(displayRight() != rightVisible) 
-                setRightVisible(displayRight());
-    }, []);
+        const displayLeft = () => (scrollRef != undefined && scrollRef.current != undefined) ? scrollRef.current.scrollLeft == 0 ? false : true : true;
+        const displayRight = () => (scrollRef != undefined && scrollRef.current != undefined) ? scrollRef.current.scrollLeft > (scrollRef.current.scrollWidth - (scrollRef.current.offsetWidth*1.1)) ? false : true : true;
+        // useEffect(() => { //Start adjusting to show scroll overlay arrows
+        //     window.addEventListener('transitionend',onScroll);},[]);
+        // const onScroll = useCallback((event) => {
+        //     // if(displayLeft() != leftVisible) 
+        //         setLeftVisible(displayLeft());
+        //     // if(displayRight() != rightVisible) 
+        //         setRightVisible(displayRight());
+        //     }, []);
+    useEffect(()=>setInterval(()=>{
+        // console.log('Updating Technologies', scrollRef.current.scrollLeft);
+    // if(displayLeft() != leftVisible) 
+        setLeftVisible(displayLeft());
+    // if(displayRight() != rightVisible)
+        setRightVisible(displayRight());
+    }, 1500),[]);
         
     //OnClick Action horizontal scroll shift of overlay buttons
-    const scrollLeft = () => scrollRef.current.scrollLeft -= 300;
-    const scrollRight = () => scrollRef.current.scrollLeft += 300;
+    const scrollLeft = () => (scrollRef != undefined && scrollRef.current != undefined) ? scrollRef.current.scrollLeft -= 300 : null;
+    const scrollRight = () => (scrollRef != undefined && scrollRef.current != undefined) ? scrollRef.current.scrollLeft += 300 : null;
 
 
 //NOTE: on small screen flexbox mapping changed to horizontal scroll overflow. see: technologies.css
@@ -76,8 +87,8 @@ const Technologies = ({passRef}) => {
                     <Tip id={tech.title + '-tip'}><span>View: {tech.link}</span></Tip>
             </span>)}
         </div>
-        {leftVisible ? <div class='tech-arrow-Nav tech-arrow-Left' style={{height: scrollRef.current == null ? 117 : scrollRef.current.offsetHeight, opacity: ''}} onClick={() => scrollLeft()}><div style={{display: 'table-cell', verticalAlign: 'middle'}}>&lt;</div></div> : <div></div>}
-        {rightVisible ? <div class='tech-arrow-Nav tech-arrow-Right' style={{height: scrollRef.current == null ? 117 : scrollRef.current.offsetHeight, opacity: ''}} onClick={() => scrollRight()}><div style={{display: 'table-cell', verticalAlign: 'middle'}}>&gt;</div></div> : <div></div>}
+        {leftVisible ? <div class='tech-arrow-Nav tech-arrow-Left' style={{height: (scrollRef == undefined || scrollRef.current == undefined || scrollRef.current == null) ? 117 : scrollRef.current.offsetHeight, opacity: ''}} onClick={() => scrollLeft()}><div style={{display: 'table-cell', verticalAlign: 'middle'}}>&lt;</div></div> : <div></div>}
+        {rightVisible ? <div class='tech-arrow-Nav tech-arrow-Right' style={{height: (scrollRef == undefined || scrollRef.current == undefined || scrollRef.current == null) ? 117 : scrollRef.current.offsetHeight, opacity: ''}} onClick={() => scrollRight()}><div style={{display: 'table-cell', verticalAlign: 'middle'}}>&gt;</div></div> : <div></div>}
         <div ref={scrollRef} className='technologies-box-scroll' >
             {technologies.map((tech)=> 
             <span key={tech.title}>

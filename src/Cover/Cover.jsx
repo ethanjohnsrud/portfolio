@@ -1,7 +1,9 @@
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Cover.css'
+//Guideline: Total Width: 1903px, reduced to 65% size
 import Background from '../Assets/final-cover-desk-image.png';
+//Guideline: icons Image saved: 40px x 40px 16-png transparent background
 import linkedIn from '../Assets/linkedin.png';
 import github from '../Assets/github.png';
 import email from '../Assets/email.png';

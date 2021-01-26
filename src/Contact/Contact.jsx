@@ -4,6 +4,7 @@ import Tip from 'react-tooltip';
 import '../index.css';
 import './Contact.css';
 import emailjs from 'emailjs-com';
+//Guideline: profile head Image saved: 80px x 80px 16-png transparent background
 import head from '../Assets/head2.png';
 // import dotenv from '../../.env';
 // dotenv.config();

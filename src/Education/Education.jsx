@@ -14,7 +14,7 @@ const original=[ //new line is new command
 //University
 {text: `education.university`, command: true, link: '', prompt: ''},
 {text: `> University of Minnesota`, command: false, link: 'https://www.d.umn.edu/', prompt: 'View University'},
-{text: `> Major: B.S. Computer Science`, command: false, link: 'https://onestop2.umn.edu/pcas/viewCatalogProgram.do?programID=439&strm=1179&campus=UMNDL', prompt: 'View Requirements'},
+{text: `> Major: Computer Science B.S.`, command: false, link: 'https://onestop2.umn.edu/pcas/viewCatalogProgram.do?programID=439&strm=1179&campus=UMNDL', prompt: 'View Requirements'},
 {text: `> Minor: Business Finance`, command: false, link: 'https://onestop2.umn.edu/pcas/viewCatalogProgram.do?programID=2296&strm=1209&campus=UMNDL', prompt: 'View Requirements'},
 {text: `> ABET Accredited: CAC`, command: false, link: 'https://www.abet.org/', prompt: 'View ABET'},
 {text: `>\t GPA: 3.4`, command: false, link: '', prompt: ''},
@@ -45,32 +45,46 @@ const original=[ //new line is new command
 {text: `*\t BSA :: Eagle Scout`, command: false, link: 'https://nesa.org/', prompt: 'View NESA'},
 ];
 
+//Custom Hook : Reference Current State in useCalback : https://scastiel.dev/posts/2019-02-19-react-hooks-get-current-state-back-to-the-future/
+const useRefState = initialValue => {
+    const [state, setState] = useState(initialValue);
+    const stateRef = useRef(state);
+    useEffect(
+      () => { stateRef.current = state },
+      [state]
+    );
+    return [state, stateRef, setState]
+  }
 const Education = ({passRef}) => {
-    const [renderAnimation, setRenderAnimation] = useState(false);
+    const [renderAnimation, renderAnimationRef, setRenderAnimation] = useRefState(false);
     const [maxCharacters, setMaxCharacters] = useState(50);
     const [maxCommandCharacters, setMaxCommandCharacters] = useState(42);
     const width = useRef(null);
     useEffect(() => {
-        const fontSize = window.innerWidth > 628 ? 20 : 10; //phone transition for root rem
-        const fontWidth = ((fontSize*0.8*0.62)); //font-size: 0.8rem 0.62 constant ratio ???
-        setMaxCharacters(width.current ? (Math.floor((width.current.clientWidth-(fontSize*1.5*2)) / fontWidth)) : 50); 
-        setMaxCommandCharacters(width.current ? (Math.floor((width.current.clientWidth-(fontSize*1.5*2)) / fontWidth)-8) : 50); //ethan:~$ == 8 characters && (20)*1.5) == 1.5rem padding 
-        // console.log(`Terminal width is: ${width.current ? width.current.clientWidth : 0}`, 
-            // `Max Characters set: ${maxCharacters}`);
-        //Listener to start animation, first time in view
-            window.addEventListener('scroll',onView);
+        if(width != null && width != undefined && width.current != undefined) {
+            console.log('Reconfiguring Education Terminal with new broser width configurations.');
+            const fontSize = window.innerWidth > 628 ? 20 : 10; //phone transition for root rem
+            const fontWidth = ((fontSize*0.8*0.62)); //font-size: 0.8rem 0.62 constant ratio ???
+            setMaxCharacters(width.current ? (Math.floor((width.current.clientWidth-(fontSize*1.5*2)) / fontWidth)) : 50); 
+            setMaxCommandCharacters(width.current ? (Math.floor((width.current.clientWidth-(fontSize*1.5*2)) / fontWidth)-8) : 50); //ethan:~$ == 8 characters && (20)*1.5) == 1.5rem padding 
+            // console.log(`Terminal width is: ${width.current ? width.current.clientWidth : 0}`, 
+                // `Max Characters set: ${maxCharacters}`);
+            //Listener to start animation, first time in view
+            window.removeEventListener('scroll', onView); //Just in case
+                window.addEventListener('scroll',onView);
+        }
     }, [width.current,]);
 
 
         //Start typing on scroll, only first occurrence
         const onView = useCallback((event) => {
             // console.log('HERE ::', passRef.current.offsetTop, window.scrollY, passRef.current.height, passRef.current.offsetHeight);
-              if (passRef != null && passRef.current != null && ((passRef.current.offsetTop - passRef.current.offsetHeight) < window.scrollY)) {
+              if (!renderAnimationRef.current && passRef != null && passRef != undefined && passRef.current != undefined && ((passRef.current.offsetTop - passRef.current.offsetHeight) < window.scrollY)) {
             // if((document.getElementById('education-section').getBoundingClientRect().top-(document.getElementById('education-section').getBoundingClientRect().height *2 )) < 0){
                 setRenderAnimation(true);
                 console.log('Starting Terminal Animation');
                 window.removeEventListener('scroll', onView);
-            //Timer to reset State
+            //Timer to reset State: 90 seconds
                 setTimeout(()=>setRenderAnimation(false), 90000);
             }
         }, []);

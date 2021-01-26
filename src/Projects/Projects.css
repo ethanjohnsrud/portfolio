@@ -11,6 +11,30 @@
       width: 100%;
       margin: 0 0 0 0;
   }
+  #project-list-scroll-box {
+    /* position: relative;
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* overflow: hidden; */
+    /* text-align: center;
+    width: 100%;
+    margin: 0; */ 
+
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: start;
+    flex-wrap: unset;
+    white-space:nowrap;
+    /* overflow: auto;            */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
   
  #project-title {
     position: static;
@@ -31,7 +55,6 @@
     flex-direction: column;
     align-items: center; */
     margin: 0 0.5rem;
-    text-align: center;
     /* padding: auto; */
     width: 75vw;
     height: auto;
@@ -92,6 +115,7 @@
     position: relative;
     bottom: 1.0rem;
     margin-bottom: -1.0rem;
+    /* margin-top: 1.0rem; */
     width: 100%;
     white-space: pre-wrap;
     font-family: 'Raleway', sans-serif;
@@ -133,12 +157,22 @@
     cursor: pointer;
 }
 .carousel-indicators-active {
-  display: block;
   background-color: var(--orange);
+}
+.carousel-indicators-features {
+  position: relative; 
+  bottom: 1.25rem;
+  display: block;
+  background-color: none;
   height: 1.0rem;
   width: 1.0rem;
   margin: auto 0.5rem;
+  color: var(--green); 
+  font-size: 2.0rem;
   cursor: pointer;
+}
+.carousel-indicators-features-active {
+  color: var(--orange); 
 }
 .carousel-title {
     z-index: 7;
@@ -322,3 +356,61 @@
   border-bottom-left-radius: 1.0rem;
 
 }
+.project-additional-header {
+  color: whitesmoke;
+  font-family: 'Piazzolla', serif;
+  font-size: 2.0rem;
+  letter-spacing: 0.35rem;
+  text-decoration: none;
+  text-align: center;
+  margin: 2.0rem;
+}
+.project-additional-text {
+  color: var(--orange);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+  letter-spacing: 0.18rem;
+  text-decoration: none;
+  text-align: left;
+  margin: 1.3rem 0;
+  margin-left: 25vw;
+}
+.project-scroll-arrow-Nav {
+  display: table;
+  position: absolute;
+  text-align: center;
+  z-index: 5;
+  width: 7vw;
+  height: 100%;
+  border: none;
+  border: none;
+  color: whitesmoke;
+  font-size: 5.0rem;
+  background-color: black;
+  opacity: 0.7;
+  cursor: pointer;
+}
+/* Remove default Button Outlining */
+.project-scroll-arrow-Nav:active, .project-scroll-arrow-Nav:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
+}
+.project-scroll-arrow-Nav:hover {
+  opacity: 0.95;
+  color: var(--orange);
+}
+.project-scroll-arrow-Left {
+  left: 0;
+  border-top-right-radius: 1.0rem;
+  border-bottom-right-radius: 1.0rem;
+
+}
+.project-scroll-arrow-Right {
+  right: 0;
+  border-top-left-radius: 1.0rem;
+  border-bottom-left-radius: 1.0rem;
+
+}
+  

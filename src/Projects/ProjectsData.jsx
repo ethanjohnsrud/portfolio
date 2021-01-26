@@ -1,3 +1,29 @@
+//Technologies Logos
+//Guideline: Logo Images saved: 140px Tall 16-png transparent background
+import github from '../Assets/github-logo.png';
+import scrum from '../Assets/agile-scrum-logo.png';
+import oop from '../Assets/oop-logo.png';
+import linux from '../Assets/linux-logo.png';
+import web from '../Assets/web-logo.png';
+import react from '../Assets/react-logo.png';
+import node from '../Assets/node-logo.png';
+import dart from '../Assets/dart-logo.png';
+import flutter from '../Assets/flutter-logo.png';
+import c from '../Assets/C++-logo.png';
+import java from '../Assets/java-logo.png';
+import javafx from '../Assets/javafx-logo.png';
+import express from '../Assets/express-logo.png';
+import slate from '../Assets/slate.png';
+import bootstrap from '../Assets/bootstrap.png';
+import socket from '../Assets/socket-logo.png';
+import android from '../Assets/android-studio-logo.png';
+import hooks from '../Assets/hooks.png';
+import photoshop from '../Assets/photoshop.png';
+import illustrator from '../Assets/illustrator.png';
+
+//Carousel Content
+//Guidelines: 1280px x 720px == 16:9 ratio
+//Note: Vertical Scroll: maxWidth: 1200px
 import conceptLogin from '../Assets/conceptEnvirnoment-login.png';
 import conceptSingle from '../Assets/conceptEnvirnoment-single.png';
 import conceptTree from '../Assets/conceptEnvirnoment-tree.png';
@@ -17,48 +43,143 @@ import mealMenu from '../Assets/meal-menu.png';
 import mealMake from '../Assets/meal-make.png';
 import mealError from '../Assets/meal-error.png';
 import mealShopping from '../Assets/meal-shopping.png';
+import pacmanBoard from '../Assets/pacman-board.png';
+import pacmanDemo from '../Assets/pacman-demo.mp4';
+import pacmanCharacter from '../Assets/pacman-character.png';
+import pacmanEnemy from '../Assets/pacman-enemy.png';
+import pacmanScatter from '../Assets/pacman-scatter.png';
+import pacmanException from '../Assets/pacman-exceptions.png';
+import projectManager from '../Assets/project-manager.png';
+import recordManager from '../Assets/record-manager.png';
+import projectReference from '../Assets/project-manager-reference.png';
+import projectTimer from '../Assets/project-manager-timer-demo.mp4';
+import recordFilter from '../Assets/record-manager-filter.png';
+import eatMenu from '../Assets/eatMenu.png';
+import eatMeal from '../Assets/eatMeal.png';
+import eatIngredient from '../Assets/eatIngredient.png';
+import eatSettings from '../Assets/eatSettings.png';
+import eatEdit from '../Assets/eatEdit.png';
+import eatIntro from '../Assets/eatIntro.png';
+import eatGenerateScript from '../Assets/eat-generate-script.mp4';
+
 
 //NOTE :: Content must be 16 x 9 ratio
 //NOTE :: Content must be image/vertical-scroll of .png/.jpg OR type video of .mp4
+//NOTE :: type == 'additional-features' is {target: '', type: 'additional-features', features: ['test feature 1','test feature 2','test feature 3']}
 
 const projects = [ //Target no spaces or Caps
-    {target: 'concept-environment', title: 'Concept Environment', github: '', hours: 300,
-        tech: ['react', 'web', 'node', 'express', 'socket'],
+    {target: 'concept-environment', title: 'Concept Environment', github: '', hours: 325, caption: 'Fasetto Project: Collaborative Development',
+        tech: ['react', 'web', 'node', 'express', 'socket', 'illustrator'],
         pages: [
-            {target: 'concept-environment-slide1', content: conceptTree, type: 'image', description: 'Fasetto Project: A collaborative place where ideas can be developed and explored.'},
-            {target: 'concept-environment-slide2', content: conceptLogin, type: 'image', description: 'Multiple users are can join different sessions and create a mind tree.  Prior to opening a session, users may select a version, revert or branch to a new session. '},
-            {target: 'concept-environment-slide3', content: conceptSingle, type: 'image', description: 'Starting with an original idea, users can expand and grow with more detailed concepts.  Graphically drawing relations provided the needed insight for new innovation.'},
-            {target: 'concept-environment-slide4', content: conceptVersion, type: 'video', description: 'Special features include Version Control with the ability to view, branch, or revert any version.  For each version, the edit conducted and by whom is recorded for reference.  In addition, ability to Zoom and just between Map and Hierarchy View, allow for greater accessibility to users.'},
-            {target: 'concept-environment-slide5', content: conceptPoster, type: 'vertical-scroll', description: 'Conducted crowd-source research for Concept Environment applications, as well as additional requested features.  Also, created a marketing poster to reach a greater audience.'},
+            {target: 'concept-environment-tree', content: conceptTree, type: 'image', description: 'Fasetto Project: A collaborative place where ideas can be developed and explored.'},
+            {target: 'concept-environment-login', content: conceptLogin, type: 'image', description: 'Multiple users can join different sessions and create a mind tree.  Prior to opening a session, users may select a version, revert or branch to a new session. '},
+            {target: 'concept-environment-single', content: conceptSingle, type: 'image', description: 'Starting with an original idea, users can expand and grow with more detailed concepts.  Graphically drawing relations provided the needed insight for new innovation.'},
+            {target: 'concept-environment-versions', content: conceptVersion, type: 'video', description: 'Special features include Version Control with the ability to view, branch, or revert any version.  For each version, the edit conducted and by whom is recorded for reference.  In addition, ability to Zoom and switch between Map and Hierarchy View, allow for greater accessibility to users.'},
+            {target: 'concept-environment-poster', content: conceptPoster, type: 'vertical-scroll', description: 'Conducted crowd-source research for Concept Environment applications, as well as additional requested features.  Also, created a marketing poster to reach a greater audience.'},
     ]},
-    {target: 'gravity-editor', title: 'Gravity Editor', github: '', hours: 70,
-        tech: ['react', 'web', 'slate'],
+    {target: 'what-to-eat', title: 'What to Eat?', github: 'https://github.com/ethanjohnsrud/what-to-eat', hours: 350, caption: 'Analytical Optimization and Cost Efficiency',
+        tech: ['flutter', 'dart', 'oop', 'illustrator', 'photoshop'],
         pages: [
-            {target: 'gravity-editor-slide1', content: editorHeader, type: 'image', description: 'Fasetto Project: Fasetto Collaborative Text Editor enables users of the Gravity Platform to construct, share, and amend documents.  Fasetto Editor allows multiple users to simultaneously edit documents with real-time data syncing.  This will empower users to make changes to papers and form directly on the Gravity system during meeting presentations and conference calls raising productivity and efficiency in the workplace.'},
-            {target: 'gravity-editor-slide2', content: editorFeatures, type: 'image', description: 'Gained in depth experience using Slate-js framework and API interface.  Parsed and interpreted nodes (text block sections) and leaves (character strings) to achieve desire styling.'},
-            {target: 'gravity-editor-slide4', content: editorPoster, type: 'vertical-scroll', description: ''},
+            {target: 'what-to-eat-intro', content: eatIntro, type: 'image', description: 'Evolution of original Meal Planning JavaFx application, What to Eat?, embodies similar path of Catalog to Menu to Shopping List; but with a focus around recommendations through machine learning.'},
+            {target: 'what-to-eat-menu', content: eatMenu, type: 'image', description: 'Meal Recommendations are primarily based on pantry stock, users preferences, and recent menus, with a goal of balancing variety to reduce expenses.  Menu screen displays each day of the menu as a list of meals, each containing a nested list of ingredients.  Each meal accrues expected cost and servings proportionally; in addition to displaying food types fulfilled.  While marking a meal complete, deducts ingredients from pantry; pictured on right.'},
+            {target: 'what-to-eat-meal', content: eatMeal, type: 'image', description: 'Catalog view displays meal properties, statistics, and ingredient combinations with alternatives.  Pictured on Right, is summarized Meal selection when manually adding from the Menu.  Likewise, throughout the application \'Name Tags\' for information and controls can be removed for a more condensed and slick interface; pictured in blue text, center vs left.'},
+            {target: 'what-to-eat-ingredient', content: eatIngredient, type: 'image', description: 'Ingredients Catalog as well as Pantry, operate reusing the same display and sorting management view as Meals.  Menu Items and Pantry on right, are linked back to the Catalog to reduce duplicate information and properties.   Displayed along the bottom are sorting toggle buttons with options including: cost, popularity, recent, pantry quantity, pantry expiration date, protein, carbohydrate, vegetable, fruit, sweet.'},
+            {target: 'what-to-eat-setting', content: eatSettings, type: 'image', description: 'Intentionally, no App Bar is included for a cleaner interface with scrolling lists.  App Drawer retrieved from swiping right contains easy navigation to sections as well as settings toggles.  Furthermore, when entering settings for feature pictured left; a partial bottom popup is implemented, as opposed to traditionally navigating  to a separate page.  This helps the user not get taken away from the main screen and maintain focus.  Similarity, the smooth user flow of the Shopping List on right, provides easily accessible price tracking and unit management.'},
+            {target: 'what-to-eat-edit', content: eatEdit, type: 'image', description: 'Edit Screens for: ingredients, meals, pantry items, menus, menu days, menu meals, and menu items; themselves all are uniform tile layouts.  All properties are viewable and editable in this easy to access format.  Using the most '},
+            {target: 'what-to-eat-generate-script', content: eatGenerateScript, type: 'video', description: 'Created a nodejs script to read an Excel CSV file and export as a Dart object List.  This was a challenging process to negate special characters against Excel\'s formatting,  supporting a viriety of attribute types: from numbers, to dates, to embedded lists of strings.  However once successful, the script proved to be effective at operating universally for all varieties of objects for production and testing purposes.'},
+            {target: 'what-to-eat-additional-features', type: 'additional-features', features: [
+                'Integrated Calorie Tracking',
+                'Simplified Shopping List with Gesture Integration',
+                'Leftovers Management within Pantry',
+                'Searching and Barcode Scanning',
+                'Notification Reminders and Prompts',
+                'Firebase Cloud Management'
+            ]}
     ]},
-    {target: 'meal-planning', title: 'Meal Planner', github: '', hours: 250,
-        tech: ['java', 'javafx'],
+    {target: 'project-manager', title: 'Project Manager', github: 'https://github.com/ethanjohnsrud/project-manager', hours: 100, caption: 'Development Planning and Bug History',
+        tech: ['react', 'web', 'node', 'express', 'socket', 'oop', 'illustrator'],
         pages: [
-            {target: 'meal-planning-slide1', content: mealCatalog, type: 'image', description: 'A complex Meal Planning application; comprised of a Catalog list of meals and ingredients, which can then be formed together into Meals to become apart of a Menu.  Menus can be saved, loaded, and sent to a corresponding Shopping  List to be generated.'},
-            {target: 'meal-planning-slide2', content: mealMeal, type: 'image', description: 'Displays all the properties of a meal for new and editing purposes.  Ingredients can be added or removed; as well as: ID #, Name, and boolean properties may be set.'},
-            {target: 'meal-planning-slide3', content: mealMenu, type: 'image', description: 'Displays the current menu, selected from drop down menu.  Checkboxes select meal to add selected catalog meal to, and indicators display nutrition contents in each meal.'},
-            {target: 'meal-planning-slide4', content: mealMake, type: 'image', description: 'Displays meals drop down categories of packable vs dining, and combines appropriate meal combinations including of a fruit, vegetable, carbohydrate base, and protein.  Sorting is based on popularity ranking and time since last used.  Then selects five meals by: first meal from top 20%, second top 40%...fifth meal from all meals.  Same method for corresponding vegetable and fruit.  This elevates preferences while also promoting variety.'},
-            {target: 'meal-planning-slide5', content: mealShopping, type: 'image', description: 'Displays quantified ingredients from meals in the current menu.  Quantities may be adjusted, items removed and custom items added to the shopping list.  When Menu is exported, the shopping list is adhered to the text document for printing.'},
-            {target: 'meal-planning-slide6', content: mealError, type: 'image', description: 'Created a variety of pop-up notifications for confirmations and verifications.  All catch statements report to error displaying method, which gives a description and location method originated.  Errors can then be dismissed individually or exported to a dedicated  error log text file with a note for later handling.'},
+            {target: 'project-manager', content: projectManager, type: 'image', description: 'Nested structure of projects, tasks, and entries; enables detailed goal outlining and progress tracking.  Additionally calculates and subtotals accumulated time spent into corresponding project value.'},
+            {target: 'project-manager-records', content: recordManager, type: 'image', description: 'Personal Stack Overflow, as a digital record keeping resource for future projects.  For big and small reoccurring issues, by making a note I can easily and efficiently look up the solution or reference; as opposed to going through an old code base or relearning through documentation which can be quite time consuming.'},
+            {target: 'project-manager-filter', content: recordFilter, type: 'image', description: 'Project Manager can filter with tags for technologies and also search through text.  Smart search algorithm awards higher ranking to a match of a tag or title as opposed to deep in the description.'},
+            {target: 'project-manager-reference', content: projectReference, type: 'image', description: 'Solved, yet troubling entries can be sent over to the records side automatically.  Linking to the original, instantly creates a new record, includes a copy of the entry, and stack trace to where occurred in Project Manager.'},
+            {target: 'project-manager-timer', content: projectTimer, type: 'video', description: 'Project Manager includes a timer to record entries of time spent on tasks.  This allows more accurate time tracking for evaluation analysis and direct feature valuing.'},
+            {target: 'project-manager-additional-features', type: 'additional-features', features: [
+                'Advanced Text Styling: bold, italic, underline, color, highlighting',
+                'Markup Language Styling Support',
+                'Image and Code Embedding',
+                'Move to Cloud Based Hosting',
+                'Mobile App: TO-DO List Style Interface',
+                'Export project stats to PDF report'
+            ]}
     ]},
-    {target: 'umd-alive', title: 'UMD Alive', github: 'https://github.com/ethanjohnsrud/UMD-Alive-Software-Engineering-3541/', hours: 100,
-        tech: ['agile', 'android', 'java'],
+    {target: 'umd-alive', title: 'UMD Alive', github: 'https://github.com/ethanjohnsrud/UMD-Alive-Software-Engineering-3541/', hours: 100, caption: 'School Club Organization and Messaging',
+    tech: ['agile', 'android', 'java'],
+    pages: [
+        {target: 'umd-alive-profile', content: umdAliveProfile, type: 'image', description: 'Agile Scrum Team Oriented Project as apart of Software Engineering Class.   Our team\'s core features include school google authentication login, club event postings, and inter club messaging.'},
+        {target: 'umd-alive-chess', content: umdAliveChess, type: 'image', description: 'Club administrator has the power to moderate club chat, by deleting any or all messages among members.  They also have the power to post upcoming club events and manage membership.'},
+        {target: 'umd-alive-esports', content: umdAliveEsports, type: 'image', description: 'Conversely, members of a club have limited control; only being able to delete their own messages in the chat.  Also viewing upcoming events and the club members list.'},
+        {target: 'umd-alive-stories', content: umdAliveStories, type: 'vertical-scroll', description: ''},
+        {target: 'umd-alive-commits', content: umdAliveCommits, type: 'video', description: 'Our team used github version control to manage our project files.  I became familiar with git commands, practicing frequent commits, and managing version conflicts.'},
+    ]},
+    {target: 'gravity-editor', title: 'Gravity Editor', github: '', hours: 70, caption: 'Fasetto Project: Rich Text Editor',
+        tech: ['react', 'hooks', 'web', 'slate', 'illustrator'],
         pages: [
-            {target: 'umd-alive-slide1', content: umdAliveProfile, type: 'image', description: 'Agile Scrum Team Oriented Project as apart of Software Engineering Class.   Our team  Core features include school google authentication login, club event postings, and inter club messaging.'},
-            {target: 'umd-alive-slide2', content: umdAliveChess, type: 'image', description: 'Club administrator has the power to moderate club chat, by deleting any or all messages among members.  They also have the power to post upcoming club events and manage membership.'},
-            {target: 'umd-alive-slide3', content: umdAliveEsports, type: 'image', description: 'Conversely, members of a club have limited control only being able to delete their own messages in the chat.  However, they are able to view upcoming events and the club members list.'},
-            {target: 'umd-alive-slide4', content: umdAliveStories, type: 'vertical-scroll', description: ''},
-            {target: 'umd-alive-slide5', content: umdAliveCommits, type: 'video', description: 'Our team used github version control to manage our project files.  I became familiar with git commands, practicing frequent commits, and managing version conflicts.'},
-
+            {target: 'gravity-editor-header', content: editorHeader, type: 'image', description: 'Fasetto Project: Fasetto Collaborative Text Editor enables users of the Gravity Platform to construct, share, and amend documents.  Fasetto Editor allows multiple users to simultaneously edit documents with real-time data syncing.  This will empower users to develop business documents directly on the Gravity system during meeting presentations and conference calls; drastically raising productivity and efficiency in the workplace.'},
+            {target: 'gravity-editor-features', content: editorFeatures, type: 'image', description: 'Text styling features were achieved through first isolating and tagging a group of characters, before applying styling.  Gained an in-depth experience using Slate-js framework and API interface.  Parsed and interpreted nodes (text block sections) and leaves (character strings) to achieve desire styling.'},
+            {target: 'gravity-editor-poster', content: editorPoster, type: 'vertical-scroll', description: ''},
+            {target: 'gravity-editor-additional-features', type: 'additional-features', features: [
+                'Hyperlinks, Tables, Video Embedding',
+                'Local Image Upload',
+                'Version Control and Undo / Redo',
+                'Document Controls: owner, users, edit tracking',
+            ]}
     ]},
-
-
+    {target: 'meal-planning', title: 'Meal Planner', github: 'https://github.com/ethanjohnsrud/meal-planning', hours: 250, caption: 'Menu Building and Shopping List Generation',
+        tech: ['java', 'javafx', 'oop'],
+        pages: [
+            {target: 'meal-planning-catalog', content: mealCatalog, type: 'image', description: 'A complex Meal Planning application; comprised of a catalog list of meals and ingredients, formed into a Menu, and sent to a corresponding Shopping List.'},
+            {target: 'meal-planning-meal', content: mealMeal, type: 'image', description: 'All the properties of a meal may be changed for new and editing purposes.'},
+            {target: 'meal-planning-menu', content: mealMenu, type: 'image', description: 'Menu development screen is designed for ingredients and meals to be organized for easy menu assembly.  Second section checkboxes mark menu meals for new items to be inserted.  Similarity, letter indicators specify meal catagories fulfilled.'},
+            {target: 'meal-planning-make', content: mealMake, type: 'image', description: 'Make Meals enables meals to be preassembled with multiple ingredients before inserting into the menu.  Also incorporated random and recommended meal suggestions. Meal recommendations are based on popularity ranking and time since last used.'},
+            {target: 'meal-planning-shopping', content: mealShopping, type: 'image', description: 'Shopping List displays quantified ingredients from meals in the current menu.  Quantities may be adjusted, items removed, and custom items added to the shopping list.  When Menu is exported, the shopping list is adhered to the text document for printing.'},
+            {target: 'meal-planning-error', content: mealError, type: 'image', description: 'Created a variety of pop-up notifications for confirmations and verifications.  For instance, all try-catch statements report to a global error displaying method, which gives a description and location trace.  Errors can then be dismissed individually or exported to a dedicated log for later handling.'},
+    ]},
+    {target: 'pacman', title: 'Pac-Man', github: 'https://github.com/ethanjohnsrud/pac-man', hours: 150, caption: 'Terminal Based Game with Complex Strategy',
+        tech: ['c++', 'linux', 'oop'],
+        pages: [
+            {target: 'pacman-board', content: pacmanBoard, type: 'image', description: 'Pac-Man was the first large project I completed outside of class in a C++ terminal.  I studied the logic of the games original designers\' to best replicate the classic game, while also making it my own.'},
+            {target: 'pacman-demo', content: pacmanDemo, type: 'video', description: 'Unique approach for UI, the board completely reprints after every play.  In replicating the original game, enemies pursue a few spaces ahead of the player, resulting in a checkmate style takedown.  Also, in accordance with historic game play, the enemies alternate between chase and scatter modes at difficultly based intervals.'},
+            {target: 'pacman-character', content: pacmanCharacter, type: 'image', description: 'Introduction with game control commands, options to activate statistics, and ability to set difficulty which determines the number of enemies and their speed for each level.  Player entered \‘w\’ for upwards, the program proceeds in verifying the  location for  obstructions like board walls or another enemy character; since successful the character is moved and the coin is collected, replacing the previous location with an empty space.'},
+            {target: 'pacman-enemy', content: pacmanEnemy, type: 'image', description: 'I Developed an AI algorithm and that could have multiple instantiations while operating independently. Enemies move in the same fashion as the character, in testing locations before advancing.  Furthermore, after a new enemy is created it follows preset movements to spread out before beginning the chase.'},
+            {target: 'pacman-scatter', content: pacmanScatter, type: 'image', description: 'Chase vs Scatter Mode: The game play is compromised of continuously switching back and forth between chase mode and scatter mode.  The intervals are based on the games set difficulty.  Similarly, Enemies scatter away from the character in the same fashion, from their target location; during bonus-time, after a cherry is eaten.'},
+            {target: 'pacman-exception', content: pacmanException, type: 'image', description: 'Enemy Movement Exceptions: Due to the nature of the Pac-Man board, there are a lot of caverns the enemies get stuck while in direct pursuit of their target.  The solution is executing preset routines to get out of the position and continue their pursuit of the character.  The second set of exceptions #19-26 are related to the character and enemy matching in same vertical column or horizontal row.  Provides preset movements to allow the enemy to go around and continue perusing the character.'},
+    ]},
 ];
-export default projects;
+
+
+//Technologies Logo
+const technologies = new Map();
+technologies.set('github', {title: 'Git Hub', link: 'https://github.com/', icon: github, background: 'var(--grey)'});
+technologies.set('agile', {title: 'Agile Scrum', link: 'https://www.scrum.org/resources/what-is-scrum', icon: scrum, background: 'var(--grey)'});
+technologies.set('oop', {title: 'Object Oriented Programming', link: 'https://searchapparchitecture.techtarget.com/definition/object-oriented-programming-OOP', icon: oop, background: 'var(--grey)'});
+technologies.set('linux', {title: 'Linux Environment', link: 'https://www.linux.org/', icon: linux, background: 'var(--grey)'});
+technologies.set('web', {title: 'JavaScript HTML CSS', link: 'https://www.ecma-international.org/', icon: web, background: 'var(--grey)'});
+technologies.set('react', {title: 'React JS', link: 'http://reactjs.org', icon: react, background: 'var(--grey)'});
+technologies.set('node', {title: 'Node JS', link: 'https://nodejs.org/en/', icon: node, background: 'var(--grey)'});
+technologies.set('flutter', {title: 'Flutter', link: 'https://flutter.dev/', icon: flutter, background: 'var(--grey)'});
+technologies.set('dart', {title: 'Dart', link: 'https://dart.dev/', icon: dart, background: 'var(--grey)'});
+technologies.set('c++', {title: 'C++', link: 'https://www.cplusplus.com/', icon: c, background: 'var(--grey)'});
+technologies.set('java', {title: 'Java', link: 'https://www.java.com/en/', icon: java, background: 'var(--grey)'});
+technologies.set('javafx', {title: 'JavaFX', link: 'https://openjfx.io/', icon: javafx, background: 'var(--grey)'});
+technologies.set('socket', {title: 'Socket.IO', link: 'https://socket.io/', icon: socket, background: 'var(--grey)'});
+technologies.set('express', {title: 'Express-js', link: 'https://expressjs.com/', icon: express, background: 'var(--grey)'});
+technologies.set('slate', {title: 'Slate-js', link: 'https://docs.slatejs.org/', icon: slate, background: 'var(--grey)'});
+technologies.set('bootstrap', {title: 'Bootstrap', link: 'https://getbootstrap.com/', icon: bootstrap, background: 'var(--grey)'});
+technologies.set('android', {title: 'Android Studio', link: 'https://developer.android.com/studio/', icon: android, background: 'var(--grey)'});
+technologies.set('hooks', {title:'React Hooks', link: 'https://reactjs.org/docs/hooks-overview.html', icon: hooks, background: 'var(--grey)'});
+technologies.set('photoshop', {title:'Adobe Photoshop', link: 'https://www.adobe.com/products/photoshop.html', icon: photoshop, background: 'var(--grey)'});
+technologies.set('illustrator', {title:'Adobe Illustrator', link: 'https://www.adobe.com/products/illustrator.html', icon: illustrator, background: 'var(--grey)'});
+
+
+export {projects, technologies};
