@@ -97,6 +97,19 @@ hr {
     justify-content: left;
     
 }
+.experience-achievements-area {
+    margin: 0 auto 0.5rem 0;
+    display: block;    
+}
+.experience-achievements-list {
+    margin: 0 auto 0 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    flex-wrap: wrap;
+    justify-content: left;
+    
+}
 .experience-summary {
     margin: 0.5rem;
     /* padding: 1.0rem; */

@@ -20,10 +20,12 @@ import android from '../Assets/android-studio-logo.png';
 import hooks from '../Assets/hooks.png';
 import photoshop from '../Assets/photoshop.png';
 import illustrator from '../Assets/illustrator.png';
+import pi from '../Assets/raspberry-pi-logo.png';
 
 //Carousel Content
 //Guidelines: 1280px x 720px == 16:9 ratio
 //Note: Vertical Scroll: maxWidth: 1200px
+//Send Through https://www.tinypng.com && https://www.videosmaller.com/ && https://www.ilovepdf.com/compress_pdf
 import conceptLogin from '../Assets/conceptEnvirnoment-login.png';
 import conceptSingle from '../Assets/conceptEnvirnoment-single.png';
 import conceptTree from '../Assets/conceptEnvirnoment-tree.png';
@@ -35,7 +37,7 @@ import editorFeatures from '../Assets/fasettoEditor-bottom.png';
 import umdAliveProfile from '../Assets/umdAlive-profile.png';
 import umdAliveEsports from '../Assets/umdAlive-esports.png';
 import umdAliveChess from '../Assets/umdAlive-chess.png';
-import umdAliveStories from '../Assets/umdAlive-user-stories.jpg';
+import umdAliveStories from '../Assets/umdAlive-user-stories.png';
 import umdAliveCommits from '../Assets/umdAlive-github-commit-history.mp4';
 import mealCatalog from '../Assets/meal-catalog.png';
 import mealMeal from '../Assets/meal-meal.png';
@@ -61,11 +63,17 @@ import eatSettings from '../Assets/eatSettings.png';
 import eatEdit from '../Assets/eatEdit.png';
 import eatIntro from '../Assets/eatIntro.png';
 import eatGenerateScript from '../Assets/eat-generate-script.mp4';
+import terrariumControl from '../Assets/terrarium-control.png';
+import terrariumPi from '../Assets/terrarium-pi.png';
+import terrariumAuthentication from '../Assets/terrarium-authentication.png';
+import terrariumHistory from '../Assets/terrarium-history.png';
+import terrariumDemo from '../Assets/terrarium-console-demo.mp4';
 
 
 //NOTE :: Content must be 16 x 9 ratio
 //NOTE :: Content must be image/vertical-scroll of .png/.jpg OR type video of .mp4
 //NOTE :: type == 'additional-features' is {target: '', type: 'additional-features', features: ['test feature 1','test feature 2','test feature 3']}
+//NOTE :: First Page should be still image for Demo Slideshow
 
 const projects = [ //Target no spaces or Caps
     {target: 'concept-environment', title: 'Concept Environment', github: '', hours: 325, caption: 'Fasetto Project: Collaborative Development',
@@ -121,6 +129,22 @@ const projects = [ //Target no spaces or Caps
         {target: 'umd-alive-esports', content: umdAliveEsports, type: 'image', description: 'Conversely, members of a club have limited control; only being able to delete their own messages in the chat.  Also viewing upcoming events and the club members list.'},
         {target: 'umd-alive-stories', content: umdAliveStories, type: 'vertical-scroll', description: ''},
         {target: 'umd-alive-commits', content: umdAliveCommits, type: 'video', description: 'Our team used github version control to manage our project files.  I became familiar with git commands, practicing frequent commits, and managing version conflicts.'},
+    ]},
+    {target: 'terrarium-control', title: 'Terrarium Control', github: 'https://github.com/ethanjohnsrud/project-manager', hours: 50, caption: 'Automation and Remote API Control',
+        tech: ['pi', 'web', 'node', 'express', 'photoshop'],
+        pages: [
+            {target: 'terrarium-control-control', content: terrariumControl, type: 'image', description: 'Responsive and Pure HTML and CSS user interface.  Controls device outlets through express server and API interface.  Manages terrarium environment based on sensor readings and analysis.'},
+            {target: 'terrarium-control-pi', content: terrariumPi, type: 'image', description: 'Server runs off a Raspberry Pi, controlling power through GPIO regulated switches.  Learned principles of electricity and hardware design.'},
+            {target: 'terrarium-control-console', content: terrariumDemo, type: 'video', description: 'Terrarium conditions and settings are displayed through an animated console.'},
+            {target: 'terrarium-control-authentication', content: terrariumAuthentication, type: 'image', description: 'Email alerts when conditions reach beyond a threshold and responsive actions failed to stabilize conditions.  Also, API password authentication against environment managed variables.'},
+            {target: 'terrarium-control-history', content: terrariumHistory, type: 'image', description: 'History recorded and summarized for conditions and events at regular scheduled intervals.'},
+            {target: 'terrarium-control-additional-features', type: 'additional-features', features: [
+                'AI Voice Control',
+                'Display and Control Console',
+                'Network Security Integration',
+                'Graph Trend Analysis',
+                'Machine Learning Trends for accurate predictions during hardware failure',
+            ]}
     ]},
     {target: 'gravity-editor', title: 'Gravity Editor', github: '', hours: 70, caption: 'Fasetto Project: Rich Text Editor',
         tech: ['react', 'hooks', 'web', 'slate', 'illustrator'],
@@ -180,6 +204,7 @@ technologies.set('android', {title: 'Android Studio', link: 'https://developer.a
 technologies.set('hooks', {title:'React Hooks', link: 'https://reactjs.org/docs/hooks-overview.html', icon: hooks, background: 'var(--grey)'});
 technologies.set('photoshop', {title:'Adobe Photoshop', link: 'https://www.adobe.com/products/photoshop.html', icon: photoshop, background: 'var(--grey)'});
 technologies.set('illustrator', {title:'Adobe Illustrator', link: 'https://www.adobe.com/products/illustrator.html', icon: illustrator, background: 'var(--grey)'});
+technologies.set('pi', {title: 'Raspberry Pi', link: 'https://www.raspberrypi.org/about/', icon: pi, background: 'var(--grey)'});
 
 
 export {projects, technologies};

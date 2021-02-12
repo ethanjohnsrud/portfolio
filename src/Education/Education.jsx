@@ -84,8 +84,8 @@ const Education = ({passRef}) => {
                 setRenderAnimation(true);
                 console.log('Starting Terminal Animation');
                 window.removeEventListener('scroll', onView);
-            //Timer to reset State: 90 seconds
-                setTimeout(()=>setRenderAnimation(false), 90000);
+            //Timer to reset State: 110 seconds
+                setTimeout(()=>setRenderAnimation(false), 110000);
             }
         }, []);
  

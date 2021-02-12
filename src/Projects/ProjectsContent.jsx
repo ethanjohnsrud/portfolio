@@ -122,16 +122,8 @@ const ProjectsContent = () => {
     //Paused on Hover : onMouseEnter={() => {setAutoPlay(false); }} onMouseLeave={() => {setAutoPlay(true); }}
     return (<div ref={contentRef} style={{}}>   
             <div key= {'carousel'}  ref={carouselRef} data-tip data-for={'carousel-tip'} className='carousel-box'  onClick={()=>{setPreviewMode(false); }}  style={{margin: '0 auto',}}>
-                <div className='carousel-content' key={projects[projectIndex].pages[pageIndex].target+pageIndex+projects[projectIndex].title} style={{height: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '100%' : '', width: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '100%' : '', maxHeight: '75vh', overflowY: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? 'scroll' : 'hidden', margin: '0.25rem auto'}} >
-                {projects[projectIndex].pages[pageIndex].type == 'video' ?
-                <Player playing src={projects[projectIndex].pages[pageIndex].content}  height={(carouselRef == undefined || carouselRef.current == undefined || carouselRef.current == null) ? 744 : carouselRef.current.offsetHeight} controls={false} bigPlayButtonCentered={true} autoplay={true} style={{height: '100%', width: '100%', margin: '0 auto', textAlign: 'center', overflowX: 'hidden'}} className='project-image'/>
-                : projects[projectIndex].pages[pageIndex].type == 'additional-features' 
-                ? <div className='d-block project-image' style={{width: '100%', height: 'calc(min(1200px, 100vw) * 0.537)', maxHeight: '75vh', backgroundColor: 'black'}}>
-                    <div className='project-additional-header'>Features Coming Soon</div>
-                    {projects[projectIndex].pages[pageIndex].features.map((feature)=><div className='project-additional-text'>&#10026;{'\t'+feature}</div>)}
-                </div>
-                : <img  className="d-block project-image" src={projects[projectIndex].pages[pageIndex].content} alt={projects[projectIndex].pages[pageIndex].target}  style={{width: '100%', maxHeight: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '' : '75vh', maxWidth: '1200px'}}/>
-                }
+                <div className='' key={projects[projectIndex].pages[pageIndex].target+pageIndex+projects[projectIndex].title} style={{height: 'calc(min(1200px, 100vw) * 0.537)', width: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '100%' : '', maxHeight: '75vh', overflowY: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? 'scroll' : 'hidden', margin: '0.25rem auto'}} >
+                    <ProjectMedia projectIndex={projectIndex} pageIndex={pageIndex} carouselRef={carouselRef} />
                     <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
                     {projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? <div></div>
                     : <div id='describe-box' className='carousel-description-box' >
@@ -172,7 +164,7 @@ const ProjectsContent = () => {
         </div> : <div key={'active-project'}></div>}
             {leftVisible ? <div class='project-scroll-arrow-Nav project-scroll-arrow-Left' style={{height: (projectScrollBoxRef == undefined || projectScrollBoxRef.current == undefined || projectScrollBoxRef.current == null) ? 200 : projectScrollBoxRef.current.offsetHeight, opacity: ''}} onClick={() => scrollLeft()}><div style={{ display: 'table-cell', verticalAlign: 'middle'}}>&lt;</div></div> : <div></div>}
             {rightVisible ? <div class='project-scroll-arrow-Nav project-scroll-arrow-Right' style={{height: (projectScrollBoxRef == undefined || projectScrollBoxRef.current == undefined || projectScrollBoxRef.current == null) ? 200 : projectScrollBoxRef.current.offsetHeight, opacity: ''}} onClick={() => scrollRight()}><div style={{ display: 'table-cell', verticalAlign: 'middle'}}>&gt;</div></div> : <div></div>}
-        <div ref={projectScrollBoxRef} id='project-list-scroll-box'>
+        <div ref={projectScrollBoxRef} id='project-list-scroll-box' style={{}}>
             {projects.map((project,i)=> (!previewMode && projectIndex == i) ? <div></div> :
                 <span ref={(i==0) ? sampleItem : (!previewMode && projectIndex == 0 && i==1) ? sampleItem : null} >
                     <div key={project.target} data-tip data-for={project.target + i + '-tip'} className='project-list' onClick={()=>{setPreviewMode(false); setProjectIndex(i); setPageIndex(0); }}>
@@ -185,5 +177,17 @@ const ProjectsContent = () => {
         </div>
     </div>);
 }
+
+const ProjectMedia = ({projectIndex, pageIndex, carouselRef}) => 
+    projects[projectIndex].pages[pageIndex].type == 'video' ?
+    <Player playing src={projects[projectIndex].pages[pageIndex].content}  height={(carouselRef == undefined || carouselRef.current == undefined || carouselRef.current == null) ? 744 : carouselRef.current.offsetHeight} controls={false} bigPlayButtonCentered={true} autoplay={true} style={{height: '100%', width: '100%', margin: '0 auto', textAlign: 'center', overflowX: 'hidden'}} className='project-image carousel-slide-animation'/>
+    : projects[projectIndex].pages[pageIndex].type == 'additional-features' 
+    ? <div className='d-block project-image carousel-slide-animation' style={{width: '100%', height: '100%', maxHeight: '', backgroundColor: 'black'}}>
+        <div className='project-additional-header'>Features Coming Soon</div>
+        {projects[projectIndex].pages[pageIndex].features.map((feature)=><div className='project-additional-text'>&#10026;{'\t'+feature}</div>)}
+    </div>
+    : <img  className="d-block project-image carousel-slide-animation" src={projects[projectIndex].pages[pageIndex].content} alt={projects[projectIndex].pages[pageIndex].target}  style={{width: '100%', maxWidth: '1200px'}}/>;
+
+
 
 export default ProjectsContent;

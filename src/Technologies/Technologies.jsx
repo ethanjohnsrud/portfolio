@@ -22,6 +22,7 @@ import bootstrap from '../Assets/bootstrap.png';
 import hooks from '../Assets/hooks.png';
 import photoshop from '../Assets/photoshop.png';
 import illustrator from '../Assets/illustrator.png';
+import pi from '../Assets/raspberry-pi-logo.png';
 
 
 const Technologies = ({passRef}) => {
@@ -44,6 +45,7 @@ const Technologies = ({passRef}) => {
         {title: 'Socket.IO', link: 'https://socket.io/', icon: socket},
         {title: 'Photoshop', link: 'https://www.adobe.com/products/photoshop.html', icon: photoshop},
         {title: 'Illustrator', link: 'https://www.adobe.com/products/illustrator.html', icon: illustrator},
+        {title: 'Raspberry Pi', link: 'https://www.raspberrypi.org/about/', icon: pi}
     ];
     const scrollRef = useRef(null); //Reference Outer Scroll Box
     const [leftVisible, setLeftVisible] = useState(false); //Left Scroll Arrow

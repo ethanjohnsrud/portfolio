@@ -9,7 +9,11 @@ const Experience = ({passRef}) => {
 
     const EXPERIENCES=[
         {position: 'Software Developer', company: 'Fasetto', time: 'Oct. 2019 - May. 2020', link: 'https://www.fasetto.com/', icon: fasetto,
-            summary: 'Through this internship experience, I gained valuable insight into the inter-workings of a tech company and the daily duties of software engineers.  I became familiar with the development lifecycle, with frequent Q&A testing, software demos, and product sales process.  I had the opportunity to work side by side the development team on a daily basis, receiving career guidance and jump starting my skills with full stack development.',
+            summary: 'Through this internship experience, I gained valuable insight into the inter-workings of a tech company and the daily duties of software engineers.  I became familiar with the development lifecycle, with frequent Q&A testing, software demos, and product sales process.  I had the opportunity to work side by side with the development team on a daily basis, receiving career guidance and jump starting my skills with full stack development.',
+            achievements: [{title: 'Navigated the full software lifecycle in developing Concept Environment:',
+                list: ['1) Brainstorming Ideas', '2) Mock Prototypes', '3) Feature Development', '4) Client User Interface', '5) Backend Server Organization', '6) Market Research', '7) Version Control Management', '8) Marketing', '9) Production Release', '10) Deployment',
+                ]},
+            ],
             notes: [
                 {title: 'Mentor: Matthew Kleven', description: 'Guided in introduction with React and Front End Technology Stack', link: 'https://www.linkedin.com/in/matthew-kleven-b4a48b179/', prompt: 'Matthew LinkedIn'},
                 {title: 'Supervisor: Parnell Lutz', description: 'Guided in User Design, Functionality, and Project Management', link: 'https://www.linkedin.com/in/parnell-lutz-6bb13224/', prompt: 'Parnell LinkedIn'},
@@ -47,6 +51,14 @@ const Experience = ({passRef}) => {
 
                     <div className='experience-area' style={{}}>
                         <h3 className='experience-summary' style={{}}>{experience.summary}</h3>
+                            {experience.achievements.map((achieve)=>
+                                <div className='experience-achievements-area'>
+                                    <h3 className='experience-summary' style={{fontSize: '', margin: '', fontWeight: '700'}}>{achieve.title}</h3>
+                                    <div className='experience-achievements-list'>                                    
+                                        {achieve.list.map((item)=><span key={item} className='experience-summary' style={{width: '25%', minWidth: '235px', fontSize: '', margin: '0 0 0.30rem 0.5rem', }}>{item}</span>)}
+                                    </div>
+                                </div>
+                                )}
                         <div className='experience-note-area'>
                             {experience.notes.map((note)=>
                             <span key={note.title}>
