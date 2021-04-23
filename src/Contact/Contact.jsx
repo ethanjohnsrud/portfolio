@@ -65,9 +65,9 @@ const Contact = ({passRef}) => {
                 <input name="email" type="email" class="form-control" id="emailBox" placeholder="Email..." {...bindEmail}/>
                 <textarea name="message" class="form-control" id="messageBox" placeholder="Message..." {...bindMessage}></textarea>
                 <section style={{width: '100%', alignItems: 'center', margin: 'auto'}}>
-                        <RECAPTCHA sitekey={'6Lc7ubYaAAAAABrDZnE83dOTS5yNWYMuP-V59nNR'}
-                            ref={recaptchaRef}
-                            theme="dark"/>
+                    <RECAPTCHA sitekey={process.env.REACT_APP_recaptchaKey}
+                        ref={recaptchaRef}
+                        theme="dark"/>
                     <input type="submit" value='SEND' class="btn btn-dark" id="sendButton"/>
             {/* Link for Google Form Review of Website  */}
                     {/* <a data-tip data-for={'survey-tip'} href='https://docs.google.com/forms/d/e/1FAIpQLSd41fhPOX7sKgfUOmtcL-FUGuOT-F935puawc1ikkWci9mhdw/viewform?usp=sf_link' target='_blank' rel="noopener noreferrer" class="btn btn-dark" id="reviewButton">SURVEY :: What do you think of my Portfolio?</a>
