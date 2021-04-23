@@ -1,5 +1,6 @@
 // import 'bootstrap/dist/css/bootstrap.css';
 import React, {useState} from 'react';
+import RECAPTCHA from "react-google-recaptcha";
 import Tip from 'react-tooltip';
 import '../index.css';
 import './Contact.css';
@@ -32,24 +33,26 @@ const Contact = ({passRef}) => {
     const { value:name, bind:bindName, reset:resetName } = useInput('');
     const { value:email, bind:bindEmail, reset:resetEmail } = useInput('');
     const { value:message, bind:bindMessage, reset:resetMessage } = useInput('');
+    const recaptchaRef = React.createRef();
 
     const sendMessage = (event) => {
         event.preventDefault();
-        if(message !== '') {
-            const response = {name: name, email:email, message: message};
+        if(message !== '' && recaptchaRef.current.getValue()!='') {
+            const response = {name: name, email:email, message: message, 'g-recaptcha-response': recaptchaRef.current.getValue(),};
             console.log('Sending Message:', response, );
             emailjs.send(`${process.env.REACT_APP_emailServiceId}`, `${process.env.REACT_APP_emailTemplateId}`, response, `${process.env.REACT_APP_emailUserId}`)
                 .then((res) => {
                     console.log('SUCCESS!', res.status, res.text);
+                    resetName();
+                    resetEmail();
+                    resetMessage();
+                    // recaptchaRef.current.reset();
                 }, (err) => {
                     console.log('FAILED...', err);
                 });
         }
-        resetName();
-        resetEmail();
-        resetMessage();
+        
     }
-
 
     return (<div id='contact-section' ref={passRef}   style={{paddingTop: '3.0rem'}} >
             <div class='container-fluid row' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2.0rem auto'}} >
@@ -62,10 +65,13 @@ const Contact = ({passRef}) => {
                 <input name="email" type="email" class="form-control" id="emailBox" placeholder="Email..." {...bindEmail}/>
                 <textarea name="message" class="form-control" id="messageBox" placeholder="Message..." {...bindMessage}></textarea>
                 <section style={{width: '100%', alignItems: 'center', margin: 'auto'}}>
+                        <RECAPTCHA sitekey={'6Lc7ubYaAAAAABrDZnE83dOTS5yNWYMuP-V59nNR'}
+                            ref={recaptchaRef}
+                            theme="dark"/>
                     <input type="submit" value='SEND' class="btn btn-dark" id="sendButton"/>
             {/* Link for Google Form Review of Website  */}
-                    <a data-tip data-for={'survey-tip'} href='https://docs.google.com/forms/d/e/1FAIpQLSd41fhPOX7sKgfUOmtcL-FUGuOT-F935puawc1ikkWci9mhdw/viewform?usp=sf_link' target='_blank' rel="noopener noreferrer" class="btn btn-dark" id="reviewButton">SURVEY :: What do you think of my Portfolio?</a>
-                    <Tip id={'survey-tip'}><span>Survey</span></Tip>
+                    {/* <a data-tip data-for={'survey-tip'} href='https://docs.google.com/forms/d/e/1FAIpQLSd41fhPOX7sKgfUOmtcL-FUGuOT-F935puawc1ikkWci9mhdw/viewform?usp=sf_link' target='_blank' rel="noopener noreferrer" class="btn btn-dark" id="reviewButton">SURVEY :: What do you think of my Portfolio?</a>
+                    <Tip id={'survey-tip'}><span>Survey</span></Tip> */}
                 </section>
             </form>
         </div>

@@ -5,7 +5,7 @@ import Typing from 'react-typing-animation';
 import '../index.css';
 import './Education.css'
 import fhsDiploma from '../Assets/FHS-Diploma.pdf';
-import umdDiploma from '../Assets/university-transcript.pdf';
+import umdDiploma from '../Assets/Ethan-Johnsrud-Diploma-University-of-Minnesota.pdf';
 
 const original=[ //new line is new command
     {text: `npm install`, command: true, link: '', prompt:''},
@@ -62,7 +62,7 @@ const Education = ({passRef}) => {
     const width = useRef(null);
     useEffect(() => {
         if(width != null && width != undefined && width.current != undefined) {
-            console.log('Reconfiguring Education Terminal with new broser width configurations.');
+            // console.log('Reconfiguring Education Terminal with new browser width configurations.');
             const fontSize = window.innerWidth > 628 ? 20 : 10; //phone transition for root rem
             const fontWidth = ((fontSize*0.8*0.62)); //font-size: 0.8rem 0.62 constant ratio ???
             setMaxCharacters(width.current ? (Math.floor((width.current.clientWidth-(fontSize*1.5*2)) / fontWidth)) : 50); 
@@ -117,9 +117,7 @@ const Education = ({passRef}) => {
                 });    
         } else if(line != '') lines.push({text: line.text, command: line.command, link: line.link, prompt: line.prompt});
     }); 
-    
-    console.log('final', lines);
-    
+        
     return (<div id='education-section' ref={passRef}  class='container-fluid row no-padding no-margin w-100' style={{position: 'relative',  left: 0, right: 0, paddingTop: '3.0rem'}}>
             <div className='col-xl-6 col-lg-10 col-md-12 w-100' style={{margin: '0 auto'}}>
                 <div style={{textAlign: 'center'}}>
