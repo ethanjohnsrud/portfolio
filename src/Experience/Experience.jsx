@@ -8,7 +8,7 @@ import fasettoLetter from '../Assets/fasettoRecommendation.pdf'
 const Experience = ({passRef}) => {
 
     const EXPERIENCES=[
-        {position: 'Software Developer', company: 'Fasetto', time: 'Oct. 2019 - May. 2020', link: 'https://www.fasetto.com/', icon: fasetto,
+        {position: 'Software Developer', company: 'Fasetto', time: 'Oct. 2019 - Aug. 2020', link: 'https://www.fasetto.com/', icon: fasetto,
             summary: 'Through this internship experience, I gained valuable insight into the inter-workings of a tech company and the daily duties of software engineers.  I became familiar with the development lifecycle, with frequent Q&A testing, software demos, and product sales process.  I had the opportunity to work side by side with the development team on a daily basis, receiving career guidance and jump starting my skills with full stack development.',
             achievements: [{title: 'Navigated the full software lifecycle in developing Concept Environment:',
                 list: ['1) Brainstorming Ideas', '2) Mock Prototypes', '3) Feature Development', '4) Client User Interface', '5) Backend Server Organization', '6) Market Research', '7) Version Control Management', '8) Marketing', '9) Production Release', '10) Deployment',
