@@ -9,9 +9,11 @@ const Manifesto = () => {
         <a style={{textDecoration: 'none'}} href='https://agilemanifesto.org/' target='_blank' rel="noopener noreferrer">
         <h2 id='text-title'>- MANIFESTO -</h2>
         <section style={{display: 'flex', flexDirection: 'row', width: '100%', padding: '0.25rem'}}>
-            <p class='text-line text-left'>Continuous Development and Evaluation</p>
+            {/* <p class='text-line text-left'>Continuous Development and Evaluation</p> */}
+            <p class='text-line text-left'>Iterative Development Cycle</p>
             <p class='text-line'>over</p>
-            <p class='text-line text-right'>Project Completion and Release</p>
+            {/* <p class='text-line text-right'>Project Completion and Release</p> */}
+            <p class='text-line text-right'>Waterfall Single Pass</p>
         </section>
         <section style={{display: 'flex', flexDirection: 'row', width: '100%', padding: '0.25rem'}}>
             <p class='text-line text-left'>Clarity in Sufficient Commenting</p>

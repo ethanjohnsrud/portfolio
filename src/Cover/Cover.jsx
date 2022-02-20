@@ -23,7 +23,7 @@ const Cover = ({passRef}) => {
     return (<div id='cover-section' ref={passRef} class='container-fluid no-padding no-margin' style={{position: 'relative',  left: 0, right: 0, }}>
         <img src={Background} alt='Desk Code Overlay' class='img-fluid' id='cover-image'/>
             <div id='about-caption'>
-                <p id='about-caption-text' style={{opacity: ''}}>From ‘Hello World’ to full stack applications, my passion for software development runs deep.  Through experience in modern Agile development, I’ve achieved proficiency in frontend frameworks and backend technologies.  I actively engage the power of technology in perusing analytical challenges to develop innovative and optimized solutions.</p>
+                <p id='about-caption-text' style={{opacity: ''}}>From ‘Hello World’ to full stack applications, my passion for software development runs deep.  Through experience in modern Agile development, I’ve achieved proficiency in frontend frameworks and backend technologies.  I actively engage the power of technology in pursuing analytical challenges to develop innovative and optimized solutions.</p>
             </div>
         <h1 id='name'>ETHAN 
         JOHNSRUD</h1>

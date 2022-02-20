@@ -5,7 +5,7 @@ import Typing from 'react-typing-animation';
 import '../index.css';
 import './Education.css'
 import fhsDiploma from '../Assets/FHS-Diploma.pdf';
-import umdDiploma from '../Assets/university-transcript.pdf';
+import umdDiploma from '../Assets/Ethan-Johnsrud-Diploma-University-of-Minnesota.pdf';
 
 const original=[ //new line is new command
     {text: `npm install`, command: true, link: '', prompt:''},
