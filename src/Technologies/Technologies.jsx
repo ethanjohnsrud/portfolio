@@ -4,6 +4,7 @@ import Tip from 'react-tooltip';
 import '../index.css';
 import './Technologies.css'
 //Guideline: Logo Images saved: 140px Tall 16-png transparent background
+//Send Through https://www.tinypng.com 
 import scrum from '../Assets/agile-scrum-logo.png';
 import oop from '../Assets/oop-logo.png';
 import linux from '../Assets/linux-logo.png';
@@ -23,6 +24,9 @@ import hooks from '../Assets/hooks.png';
 import photoshop from '../Assets/photoshop.png';
 import illustrator from '../Assets/illustrator.png';
 import pi from '../Assets/raspberry-pi-logo.png';
+import redux from '../Assets/redux-logo.png';
+import sqlLite from '../Assets/sql-lite-logo.png';
+
 
 
 const Technologies = ({passRef}) => {
@@ -35,6 +39,7 @@ const Technologies = ({passRef}) => {
         {title: 'JavaScript HTML CSS', link: 'https://www.ecma-international.org/', icon: web},
         {title: 'React JS', link: 'http://reactjs.org', icon: react},
         {title: 'React Hooks', link: 'https://reactjs.org/docs/hooks-overview.html', icon: hooks},
+        {title: 'Redux', link: 'https://react-redux.js.org/', icon: redux},
         {title: 'Node JS', link: 'https://nodejs.org/en/', icon: node},
         {title: 'Flutter', link: 'https://flutter.dev/', icon: flutter},
         {title: 'Dart', link: 'https://dart.dev/', icon: dart},
@@ -43,6 +48,7 @@ const Technologies = ({passRef}) => {
         {title: 'JavaFX', link: 'https://openjfx.io/', icon: javafx},
         {title: 'Bootstrap', link: 'https://getbootstrap.com/', icon: bootstrap},
         {title: 'Socket.IO', link: 'https://socket.io/', icon: socket},
+        {title: 'SQL Lite', link: 'https://www.sqlite.org/features.html', icon: sqlLite},
         {title: 'Photoshop', link: 'https://www.adobe.com/products/photoshop.html', icon: photoshop},
         {title: 'Illustrator', link: 'https://www.adobe.com/products/illustrator.html', icon: illustrator},
         {title: 'Raspberry Pi', link: 'https://www.raspberrypi.org/about/', icon: pi}

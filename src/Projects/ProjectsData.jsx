@@ -21,6 +21,8 @@ import hooks from '../Assets/hooks.png';
 import photoshop from '../Assets/photoshop.png';
 import illustrator from '../Assets/illustrator.png';
 import pi from '../Assets/raspberry-pi-logo.png';
+import redux from '../Assets/redux-logo.png';
+import sqlLite from '../Assets/sql-lite-logo.png';
 
 //Carousel Content
 //Guidelines: 1280px x 720px == 16:9 ratio
@@ -68,6 +70,10 @@ import terrariumPi from '../Assets/terrarium-pi.png';
 import terrariumAuthentication from '../Assets/terrarium-authentication.png';
 import terrariumHistory from '../Assets/terrarium-history.png';
 import terrariumDemo from '../Assets/terrarium-console-demo.mp4';
+import terrariumPortalDevices from '../Assets/terrarium-portal-devices.png';
+import terrariumPortalTablet from '../Assets/terrarium-portal-tablet.png';
+import terrariumPortalError from '../Assets/terrarium-portal-error.png';
+
 
 
 //NOTE :: Content must be 16 x 9 ratio
@@ -76,6 +82,19 @@ import terrariumDemo from '../Assets/terrarium-console-demo.mp4';
 //NOTE :: First Page should be still image for Demo Slideshow
 
 const projects = [ //Target no spaces or Caps
+    {target: 'terrarium-portal', title: 'Terrarium Portal', github: 'https://github.com/ethanjohnsrud/terrarium-demo', hours: 150, caption: 'Realtime Environment Management', demo: 'https://terrarium-demo.netlify.app/',
+        tech: ['react', 'web', 'node', 'redux', 'sql-lite', 'express', 'photoshop', ],
+        pages: [
+            {target: 'terrarium-portal-devices', content: terrariumPortalDevices, type: 'image', description: 'Total redesign featuring intuitive graphical interface and modular abstract server design.  Increasing levels of user complexity from immediate toggle buttons, group tags, and detailed scheduling; converging through a priority queue.'},
+            {target: 'terrarium-portal-tablet', content: terrariumPortalTablet, type: 'image', description: 'Climate condition and effects are controlled with a raspberry pi.  All settings can be changed remotely stored in JSON file and SQL database.  Depending on the impact, three levels of authentication are required and verified by the server.'},
+            {target: 'terrarium-portal-error', content: terrariumPortalError, type: 'image', description: 'When climate conditions are exceeded; server reacts by overriding schedules and display flashes red; if unsuccessful an email is broadcasted prompting intervention.  All user interaction and operational exceptions are recorded in log file.'},
+            {target: 'terrarium-portal-additional-features', type: 'additional-features', features: [
+                'Dynamic Historical Graph',
+                'Control Light Color and Brightness',
+                'Special Effect Programs',
+                '2D Tracking Camera & Stream'
+            ]}
+    ]},
     {target: 'concept-environment', title: 'Concept Environment', github: '', hours: 325, caption: 'Fasetto Project: Collaborative Development',
         tech: ['react', 'web', 'node', 'express', 'socket', 'illustrator'],
         pages: [
@@ -94,7 +113,7 @@ const projects = [ //Target no spaces or Caps
             {target: 'what-to-eat-ingredient', content: eatIngredient, type: 'image', description: 'Ingredients Catalog as well as Pantry, operate reusing the same display and sorting management view as Meals.  Menu Items and Pantry on right, are linked back to the Catalog to reduce duplicate information and properties.   Displayed along the bottom are sorting toggle buttons with options including: cost, popularity, recent, pantry quantity, pantry expiration date, protein, carbohydrate, vegetable, fruit, sweet.'},
             {target: 'what-to-eat-setting', content: eatSettings, type: 'image', description: 'Intentionally, no App Bar is included for a cleaner interface with scrolling lists.  App Drawer retrieved from swiping right contains easy navigation to sections as well as settings toggles.  Furthermore, when entering settings for feature pictured left; a partial bottom popup is implemented, as opposed to traditionally navigating  to a separate page.  This helps the user not get taken away from the main screen and maintain focus.  Similarity, the smooth user flow of the Shopping List on right, provides easily accessible price tracking and unit management.'},
             {target: 'what-to-eat-edit', content: eatEdit, type: 'image', description: 'Edit Screens for: ingredients, meals, pantry items, menus, menu days, menu meals, and menu items; themselves all are uniform tile layouts.  All properties are viewable and editable in this easy to access format.  Using the most '},
-            {target: 'what-to-eat-generate-script', content: eatGenerateScript, type: 'video', description: 'Created a nodejs script to read an Excel CSV file and export as a Dart object List.  This was a challenging process to negate special characters against Excel\'s formatting,  supporting a viriety of attribute types: from numbers, to dates, to embedded lists of strings.  However once successful, the script proved to be effective at operating universally for all varieties of objects for production and testing purposes.'},
+            {target: 'what-to-eat-generate-script', content: eatGenerateScript, type: 'video', description: 'Created a nodejs script to read an Excel CSV file and export as a Dart object List.  This was a challenging process to negate special characters against Excel\'s formatting,  supporting a variety of attribute types: from numbers, to dates, to embedded lists of strings.  However once successful, the script proved to be effective at operating universally for all varieties of objects for production and testing purposes.'},
             {target: 'what-to-eat-additional-features', type: 'additional-features', features: [
                 'Integrated Calorie Tracking',
                 'Simplified Shopping List with Gesture Integration',
@@ -205,6 +224,8 @@ technologies.set('hooks', {title:'React Hooks', link: 'https://reactjs.org/docs/
 technologies.set('photoshop', {title:'Adobe Photoshop', link: 'https://www.adobe.com/products/photoshop.html', icon: photoshop, background: 'var(--grey)'});
 technologies.set('illustrator', {title:'Adobe Illustrator', link: 'https://www.adobe.com/products/illustrator.html', icon: illustrator, background: 'var(--grey)'});
 technologies.set('pi', {title: 'Raspberry Pi', link: 'https://www.raspberrypi.org/about/', icon: pi, background: 'var(--grey)'});
+technologies.set('redux', {title: 'Redux', link: 'https://react-redux.js.org/', icon: redux, background: 'var(--grey)'});
+technologies.set('sql-lite', {title: 'SQL Lite', link: 'https://www.sqlite.org/features.html', icon: sqlLite, background: 'var(--grey)'});
 
 
 export {projects, technologies};

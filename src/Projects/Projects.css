@@ -416,4 +416,23 @@
   border-bottom-left-radius: 1.0rem;
 
 }
+.carousel-demo {
+  z-index: 6;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  /* bottom: 55vh; */
+  /* width: 100%; */
+  text-align: left;
+  font-family: 'Piazzolla', serif;
+  font-size: 1.3rem;
+  color: whitesmoke;
+  background-color: var(--orange);
+  border-bottom-left-radius: 1.0rem;
+  border-top-left-radius: 1.0rem;
+  /* border-bottom-left-radius: 1.0rem; */
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
   
