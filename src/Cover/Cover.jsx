@@ -29,10 +29,10 @@ const Cover = ({passRef}) => {
         JOHNSRUD</h1>
         <div className='container row' style={{position: 'relative', minWidth: '100%'}}>
             {information.map((info)=> 
-                <div key={info.text} className='col-md-3 col-sm-6' >
+                <div key={info.text} className='col-lg-3 col-sm-6' >
                     <a data-tip data-for={info.text + '-tip'} href={info.link} target='_blank' rel="noopener noreferrer"  style={{display: 'flex', flexDirection: 'row', width: '100%', margin: '1% 10%'}}>
                         <img src={info.icon} alt={info.text} style={{width: '2rem', height: '2rem'}}></img>
-                        <h3 className='link contact-text' style={{fontSize: '0.8rem', margin: 'auto', fontWeight: '600', color: 'var(--green)'}}>{info.text}</h3>
+                        <h3 className='link contact-text' style={{}}>{info.text}</h3>
                     </a>
                     <Tip id={info.text + '-tip'}><span>{info.prompt}</span></Tip>
                 </div>

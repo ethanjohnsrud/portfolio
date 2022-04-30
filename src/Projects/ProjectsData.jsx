@@ -149,7 +149,7 @@ const projects = [ //Target no spaces or Caps
         {target: 'umd-alive-stories', content: umdAliveStories, type: 'vertical-scroll', description: ''},
         {target: 'umd-alive-commits', content: umdAliveCommits, type: 'video', description: 'Our team used github version control to manage our project files.  I became familiar with git commands, practicing frequent commits, and managing version conflicts.'},
     ]},
-    {target: 'terrarium-control', title: 'Terrarium Control', github: 'https://github.com/ethanjohnsrud/project-manager', hours: 50, caption: 'Automation and Remote API Control',
+    {target: 'terrarium-control', title: 'Terrarium Control', github: 'https://github.com/ethanjohnsrud/project-manager', hours: 50, caption: 'Automation and Remote API Control', demo: 'https://terrarium-control-demo.netlify.app/',
         tech: ['pi', 'web', 'node', 'express', 'photoshop'],
         pages: [
             {target: 'terrarium-control-control', content: terrariumControl, type: 'image', description: 'Responsive and Pure HTML and CSS user interface.  Controls device outlets through express server and API interface.  Manages terrarium environment based on sensor readings and analysis.'},

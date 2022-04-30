@@ -74,6 +74,12 @@ const ProjectsContent = () => {
         } 
     }, 5000);
 
+    //Regular Interval, Toggle Demo Flashes
+    const [invertDemo, setInvertDemo] = useState(false);
+    useAutoPlay(()=>{
+        setInvertDemo(previous => !previous);
+    }, 750);
+
     //Whether to Display Side Arrows
     const allowPrevious = () => previewMode ? false : (pageIndex > 0);
     const allowNext = () => previewMode ? false : (pageIndex < (projects[projectIndex].pages.length-1));   
@@ -125,9 +131,10 @@ const ProjectsContent = () => {
                 <div className='' key={projects[projectIndex].pages[pageIndex].target+pageIndex+projects[projectIndex].title} style={{height: 'calc(min(1200px, 100vw) * 0.537)', width: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? '100%' : '', maxHeight: '75vh', overflowY: projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? 'scroll' : 'hidden', margin: '0.25rem auto'}} >
                     <ProjectMedia projectIndex={projectIndex} pageIndex={pageIndex} carouselRef={carouselRef} />
                     <h3 className='carousel-title' >{projects[projectIndex].title}</h3>
-                    {projects[projectIndex].demo && projects[projectIndex].demo!='' ? 
-                        <a data-tip data-for={projects[projectIndex].pages[pageIndex].target + '-tip'} href={projects[projectIndex].demo} target='_blank' rel="noopener noreferrer" className='' >
-                        <h3 className='carousel-demo' >DEMO</h3></a> : <section className='none'></section>}
+                    {(projects[projectIndex].demo && projects[projectIndex].demo!='') ? 
+                        <a data-tip data-for={'project-demo-tip'} href={projects[projectIndex].demo} target='_blank' rel="noopener noreferrer" className='' >
+                        <h3 className={`carousel-demo-button${invertDemo ? ' carousel-demo-button-invert' : ''}`} >DEMO</h3></a> : <section className='none'></section>}
+                        <Tip id={'project-demo-tip'}><span>Click to See</span></Tip>
                     {projects[projectIndex].pages[pageIndex].type == 'vertical-scroll' ? <div></div>
                     : <div id='describe-box' className='carousel-description-box' >
                         <p className='carousel-description' style={{paddingBottom: previewMode ? '0.4rem' : ''}} >{projects[projectIndex].pages[pageIndex].description}</p>

@@ -1,15 +1,16 @@
 #cover-image {
-  height: 83vh;
+  height: 82vh;
   min-width: 100%;
   object-fit: cover;
+  object-position: top;
   top: 0;
-  margin-bottom: 1.50rem;
+  margin-bottom: 0.5rem;
   border-bottom: 0.3rem solid black;
 }
-/* Phone */
-@media screen and (max-width: 600px){
+ /* Phone and tablet */
+ @media only screen and (max-width: 992px){
   #cover-image {
-    height: '40vh';
+    height: 60vh;
   }
 }
 #name {
@@ -19,10 +20,15 @@
     font-size: 7vw;
     position: absolute;
     top: 10%;
-    right: 5%;
+    right: 3%;
     max-width: 40%;
     white-space: pre-wrap;
     text-align: center;
+
+    text-shadow: 0.1vw 0.1vw 1px #e0e0e0,
+    0.1vw 0.2vw 1px #e0e0e0,
+    0.1vw 0.2vw 1px #e0e0e0,
+    0.1vw 0.3vw 1px #e0e0e0;
   }
   #about-caption {
     position: absolute;
@@ -34,11 +40,14 @@
     background-color: black;
     opacity: 0.85;
   }
-  /* Phone */
-  @media screen and (max-width: 992px){
+  /* Phone and tablet */
+  @media only screen and  (max-width: 992px) and  (min-height: 500px){
     #name {
-      width: 100%;
+      font-size: 10vw;
+      right: 23%;
+      width: 75%;
       white-space: pre-wrap;
+      top: 34%;
     }
     #about-caption {
       position: relative;
@@ -46,8 +55,8 @@
       left: 0;
       right: 0;
       margin: auto;
-      bottom: 10vh;
-      margin-bottom: -10vh;
+      bottom: 5vh;
+      margin-bottom: -4vh;
       opacity: 0.9;
     }
   }
@@ -66,8 +75,8 @@
     margin: 1% 10%;
     /* color: whitesmoke; */
   }
-  /* Phone and tablet */
-  @media screen and (max-width: 600px){
+  /* Phone */
+  @media only screen and  (max-width: 992px){
     #contact-information {
       text-align: center;
       margin: auto;
@@ -80,9 +89,9 @@
   color: var(--green);
   overflow: hidden;
 }  
-@media screen and (max-width: 600px){
+@media only screen and (max-width: 992px){
   .contact-text {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }  
 }
   

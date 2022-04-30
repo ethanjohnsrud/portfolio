@@ -82,17 +82,17 @@
     /* min-width: 10.0rem;
     max-width: 15.0rem; */
   }
-  @media screen and (max-width: 600px){
+  @media only screen and (max-width: 600px){
     .award {
       width: 70vw;
     }
   }
-  @media screen and (min-width: 600px){
+  @media only screen and (min-width: 600px){
     .award {
       width: 35vw;
     }
   }
-  @media screen and (min-width: 992px){
+  @media only screen and (min-width: 992px){
     .award {
       width: 20vw;
     }
@@ -100,7 +100,7 @@
       width: 7vw;
     }
   }
-  @media screen and (min-width: 1500px){
+  @media only screen and (min-width: 1500px){
     .award {
       width: 15vw;
     }

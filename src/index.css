@@ -11,7 +11,7 @@
   color: var(--orange);
 }
 /* phone  */
-@media screen and (max-width: 600px){
+@media only screen and (max-width: 600px){
   :root {
     /* change font size also change reverence in Education */
     font-size: 15px;
@@ -82,7 +82,7 @@ body .bg-dark {
   margin-right: 6.0rem;
 }
 
-@media screen and (max-width: 768px){
+@media only screen and (max-width: 768px){
   #contact-label {
     margin-right: 0;
   }

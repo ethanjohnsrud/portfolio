@@ -65,19 +65,19 @@
     max-width: 15.0rem; */
     cursor: pointer;
   }
-  @media screen and (max-width: 600px){
+  @media only screen and (max-width: 600px){
     .project-list {
       width: 75vw;
       max-height: 25vh;
     }
   }
-  @media screen and (min-width: 768px){
+  @media only screen and (min-width: 768px){
     .project-list {
       width: 35vw;
       max-height: 22vh;
     }
   }
-  @media screen and (min-width: 992px){
+  @media only screen and (min-width: 992px){
     .project-list {
       width: 20vw;
       max-height: 18vh;
@@ -268,7 +268,7 @@
   }
 }
 
-@media screen and (min-width: 992px){
+@media only screen and (min-width: 992px){
   .carousel-box {
    margin: 0 10%;
   }
@@ -416,7 +416,7 @@
   border-bottom-left-radius: 1.0rem;
 
 }
-.carousel-demo {
+.carousel-demo-button {
   z-index: 6;
   position: absolute;
   top: 3rem;
@@ -434,5 +434,8 @@
   padding: 0.5rem;
   cursor: pointer;
 }
-
+.carousel-demo-button-invert {
+  color: var(--orange);
+  background-color: black;
+}
   
