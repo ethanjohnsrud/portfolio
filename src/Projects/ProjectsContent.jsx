@@ -153,12 +153,12 @@ const ProjectsContent = () => {
             </div>
         {projectIndex != null ?
         <div id='project-scroll-box'  >
-            <div key={'hours'} data-tip data-for={'hours-tip'} className='project-tech' style={{margin: '0 0.25rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', color: 'var(--green)', background: 'var(--grey)'}}>{projects[projectIndex].hours} Hours</div>
+            <div key={'hours'} data-tip data-for={'hours-tip'} className='project-tech' style={{margin: '0 0.25rem', padding: '0.15rem 0.25rem', height: '1.75rem', borderRadius: '0.25rem', color: 'var(--green)', background: 'var(--grey)'}}>{projects[projectIndex].hours} Hours</div>
             <Tip id={'hours-tip'}><span>Project Length</span></Tip>
             {projects[projectIndex].github == '' ? <div></div>
             : <span>
                 <a key={'github'} data-tip data-for={'gitHub'} href={projects[projectIndex].github} target='_blank' rel="noopener noreferrer" className='' >
-                    <img src={github} className='project-tech' style={{margin: '0 0.25rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: 'var(--grey)'}}></img>
+                    <img src={github} className='project-tech' style={{margin: '0 0.25rem', padding: '0.15rem 0.25rem', height: '1.75rem', borderRadius: '0.25rem', background: 'var(--grey)'}}></img>
                     {/* <h3 className='link' style={{fontSize: '1rem', marginTop: '0.5rem', color: 'var(--green)'}}>{technologies.get(t).title}</h3> */}
                 </a>
                 <Tip id={'gitHub'}><span>Source Code</span></Tip>
@@ -166,7 +166,7 @@ const ProjectsContent = () => {
             {projects[projectIndex].tech.map((t,i)=>
             <span key={technologies.get(t).title}>
                 <a   data-tip data-for={technologies.get(t).title + '-tip'} href={technologies.get(t).link} target='_blank' rel="noopener noreferrer" className='' >
-                        <img src={technologies.get(t).icon} alt={technologies.get(t).target} className='project-tech' style={{margin: '0 0.25rem', padding: '0.15rem 0.25rem', height: '2.25rem', borderRadius: '0.25rem', background: 'var(--grey)'}}></img>
+                        <img src={technologies.get(t).icon} alt={technologies.get(t).target} className='project-tech' style={{margin: '0 0.25rem', padding: '0.15rem 0.25rem', height: '1.75rem', borderRadius: '0.25rem', background: 'var(--grey)'}}></img>
                         {/* <h3 className='link' style={{fontSize: '1rem', marginTop: '0.5rem', color: 'var(--green)'}}>{technologies.get(t).title}</h3> */}
                     </a>
                     <Tip id={technologies.get(t).title + '-tip'}><span>View: {technologies.get(t).link}</span></Tip>

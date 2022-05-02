@@ -73,6 +73,9 @@ import terrariumDemo from '../Assets/terrarium-console-demo.mp4';
 import terrariumPortalDevices from '../Assets/terrarium-portal-devices.png';
 import terrariumPortalTablet from '../Assets/terrarium-portal-tablet.png';
 import terrariumPortalError from '../Assets/terrarium-portal-error.png';
+import voyantChart from '../Assets/voyant-dogs-charts.png';
+import voyantMarket from '../Assets/voyant-dogs-market.png';
+import voyantPhone from '../Assets/voyant-dogs-phones.png';
 
 
 
@@ -94,6 +97,13 @@ const projects = [ //Target no spaces or Caps
                 'Special Effect Programs',
                 '2D Tracking Camera & Stream'
             ]}
+    ]},
+    {target: 'voyant-dogs', title: 'DogeCoin Dogs', github: 'https://github.com/ethanjohnsrud/dogs-investing', hours: 50, caption: 'Voyant Dogs Investing', demo: 'https://ethanjohnsrud.github.io/dogs-investing/',
+        tech: ['react', 'web', 'redux', 'oop', 'illustrator', ],
+        pages: [
+            {target: 'voyant-dogs-market', content: voyantMarket, type: 'image', description: 'Comprehensive monitoring of Voyants\' dogs Dogecoin investment portfolios.  Including use of natural language processing to extract correlated relations.'},
+            {target: 'voyant-dogs-chart', content: voyantChart, type: 'image', description: 'View historical holdings and performance analysis dynamically based on selection filtering.'},
+            {target: 'voyant-dogs-phone', content: voyantPhone, type: 'image', description: 'Responsive design, profile editing, and fun illustrations.  Each profile has transaction history and calculated DogeCoin balance.'}
     ]},
     {target: 'concept-environment', title: 'Concept Environment', github: '', hours: 325, caption: 'Fasetto Project: Collaborative Development',
         tech: ['react', 'web', 'node', 'express', 'socket', 'illustrator'],
